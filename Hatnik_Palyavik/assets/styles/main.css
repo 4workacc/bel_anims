@@ -1,0 +1,119 @@
+#root{
+    width: 1024px;
+    height: 768px;
+   
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    margin-top: -384px;
+    margin-left: -512px;
+
+    overflow: hidden;
+
+    border: 1px solid red;
+}
+
+#TitleScreen, #MainScreen, #ResultScreen, #Main {
+    position: absolute;
+    width: 1024px;
+    height: 768px;
+
+    transition: 0.7s;
+}
+
+#TitleScreen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#MainScreen, #Main{
+    width: 1024px;
+    left: 101%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+#Main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+#ResultScreen {
+    left: 101%;
+}
+
+#Bar {
+    width: 1024px;
+    height: 30px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+}
+.bar {
+    width: 30px;
+    height: 30px; 
+    border-radius: 50%;
+}
+#Arrows {
+    position: absolute;
+    height: 255px;
+    width: 900px;
+    top: 70px;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+#ArrowLeft, #ArrowRight {
+    width: 360px;
+    height: 235px;
+    
+    background-image: url('../imgs/arrow.png');
+}
+#ArrowLeft:hover, #ArrowRight:hover {
+    transform: scale(1.1);   
+}
+#ArrowLeft:hover{       
+    transform: rotateY(180deg) scale(1.1);
+}
+#ArrowLeft {
+    transform: rotateY(180deg);
+}
+#Img0, #Img1 {
+    width: 350px;
+    height: 470px;
+    margin-top: 350px;
+    z-index: 5;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#Img0 {
+    background-image: url("../imgs/imgs - 0001.png");  
+}
+#Img1 {   
+    background-image: url("../imgs/imgs - 0002.png");   
+}
+
+#Words{
+    width: 250px;
+    height: 700px;
+    margin-top: 160px;
+   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    
+    overflow: hidden;
+}
+.Word {
+    font-size: 20px;
+}
