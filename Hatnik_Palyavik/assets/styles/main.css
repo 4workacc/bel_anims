@@ -11,9 +11,7 @@
     margin-top: -384px;
     margin-left: -512px;
 
-    overflow: hidden;
-
-    border: 1px solid red;
+    overflow: hidden;   
 }
 
 #TitleScreen, #MainScreen, #ResultScreen, #Main {
@@ -23,12 +21,15 @@
 
     transition: 0.7s;
 }
-
+h1 {
+    font-size: 45px;
+}
 #TitleScreen {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
+    background-color: rgb(224, 221, 43);
 }
 .Button {
     width: 150px;
