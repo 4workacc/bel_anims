@@ -9,9 +9,9 @@ var SecondScreen = document.getElementById('SecondScreen');
 var ThirdScreen = document.getElementById('ThirdScreen');
 var FinalScreen = document.getElementById('FinalScreen');
 
-startBut.onclick = function(){
-    TitleScreen.style.left = '-1024px';
-    FirstScreen.style.left = stage0vare + 'px';    
+startBut!.onclick = function(){
+    TitleScreen!.style.left = '-1024px';
+    FirstScreen!.style.left = stage0vare + 'px';    
 }
 
 var globalScore = 0;
