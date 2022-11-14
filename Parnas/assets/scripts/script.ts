@@ -1,20 +1,21 @@
 //Start game
+import '../styles/main.scss';
 import stage0vare, * as s0 from './stage0';
 
 var startBut = document.getElementById('StartBut');
 
-var TitleScreen = document.getElementById('TitleScreen');
-var FirstScreen = document.getElementById('FirstScreen');
-var SecondScreen = document.getElementById('SecondScreen');
-var ThirdScreen = document.getElementById('ThirdScreen');
-var FinalScreen = document.getElementById('FinalScreen');
+var TitleScreen:HTMLElement = document.getElementById('TitleScreen');
+var FirstScreen:HTMLElement = document.getElementById('FirstScreen');
+var SecondScreen:HTMLElement = document.getElementById('SecondScreen');
+var ThirdScreen:HTMLElement = document.getElementById('ThirdScreen');
+var FinalScreen:HTMLElement = document.getElementById('FinalScreen');
 
 startBut!.onclick = function(){
     TitleScreen!.style.left = '-1024px';
     FirstScreen!.style.left = stage0vare + 'px';    
 }
 
-var globalScore = 0;
+var globalScore:number = 0;
 
 function startStage0(){
     
