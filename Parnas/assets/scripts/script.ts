@@ -1,7 +1,9 @@
 //Start game
 import '../styles/main.scss';
 import stage0vare, * as s0 from './stage0';
-
+import { test } from './task0';
+import { books } from './task0';
+ 
 var startBut = document.getElementById('StartBut');
 
 var TitleScreen:HTMLElement = document.getElementById('TitleScreen');
@@ -16,6 +18,8 @@ startBut!.onclick = function(){
 }
 
 var globalScore:number = 0;
+console.log( test );
+console.log( books );
 
 function startStage0(){
     
