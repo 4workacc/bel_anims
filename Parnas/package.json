@@ -1,6 +1,9 @@
 {
   "devDependencies": {
     "babel-loader": "^9.1.0",
+    "css-loader": "^6.7.2",
+    "mini-css-extract-plugin": "^2.6.1",
+    "node-sass": "^8.0.0",
     "sass": "^1.56.1",
     "sass-loader": "^13.2.0",
     "ts-loader": "^9.4.1",
@@ -10,10 +13,5 @@
   },
   "scripts": {
     "build": "webpack"
-  },
-  "dependencies": {
-    "css-loader": "^6.7.2",
-    "mini-css-extract-plugin": "^2.6.1",
-    "node-sass": "^8.0.0"
   }
 }

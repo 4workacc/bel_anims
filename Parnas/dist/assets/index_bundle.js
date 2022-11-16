@@ -10,16 +10,6 @@
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./assets/scripts/stage0.js":
-/*!**********************************!*\
-  !*** ./assets/scripts/stage0.js ***!
-  \**********************************/
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
-
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\nvar stage0vare = 10;\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (stage0vare);\n\n//# sourceURL=webpack:///./assets/scripts/stage0.js?");
-
-/***/ }),
-
 /***/ "./assets/styles/main.scss":
 /*!*********************************!*\
   !*** ./assets/styles/main.scss ***!
@@ -36,7 +26,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
   \**********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_main_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../styles/main.scss */ \"./assets/styles/main.scss\");\n/* harmony import */ var _stage0__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./stage0 */ \"./assets/scripts/stage0.js\");\n/* harmony import */ var _task0__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./task0 */ \"./assets/scripts/task0.ts\");\n//Start game\n\n\n\n\nvar startBut = document.getElementById('StartBut');\nvar TitleScreen = document.getElementById('TitleScreen');\nvar FirstScreen = document.getElementById('FirstScreen');\nvar SecondScreen = document.getElementById('SecondScreen');\nvar ThirdScreen = document.getElementById('ThirdScreen');\nvar FinalScreen = document.getElementById('FinalScreen');\nstartBut.onclick = function () {\n    TitleScreen.style.left = '-1024px';\n    FirstScreen.style.left = _stage0__WEBPACK_IMPORTED_MODULE_1__[\"default\"] + 'px';\n};\nvar globalScore = 0;\nconsole.log(_task0__WEBPACK_IMPORTED_MODULE_2__.test);\nconsole.log(_task0__WEBPACK_IMPORTED_MODULE_2__.books);\nfunction startStage0() {\n}\nfunction startStage1() {\n}\nfunction startStage2() {\n}\nfunction final() {\n}\n\n\n//# sourceURL=webpack:///./assets/scripts/script.ts?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_main_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../styles/main.scss */ \"./assets/styles/main.scss\");\n/* harmony import */ var _stage0__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./stage0 */ \"./assets/scripts/stage0.ts\");\n//Start game\n\n\nvar startBut = document.getElementById('StartBut');\nvar TitleScreen = document.getElementById('TitleScreen');\nvar FirstScreen = document.getElementById('FirstScreen');\nvar SecondScreen = document.getElementById('SecondScreen');\nvar ThirdScreen = document.getElementById('ThirdScreen');\nvar FinalScreen = document.getElementById('FinalScreen');\nstartBut.onclick = function () {\n    TitleScreen.style.left = '-1024px';\n    FirstScreen.style.left = '0px';\n};\nvar globalScore = 0;\n(0,_stage0__WEBPACK_IMPORTED_MODULE_1__.startStage0)();\nfunction startStage1() {\n}\nfunction startStage2() {\n}\nfunction final() {\n}\n\n\n//# sourceURL=webpack:///./assets/scripts/script.ts?");
+
+/***/ }),
+
+/***/ "./assets/scripts/stage0.ts":
+/*!**********************************!*\
+  !*** ./assets/scripts/stage0.ts ***!
+  \**********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"startStage0\": () => (/* binding */ startStage0)\n/* harmony export */ });\n/* harmony import */ var _task0__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./task0 */ \"./assets/scripts/task0.ts\");\n\n\nvar curTaskCount = 10;\nvar simptomsArr = [];\nvar booksArr = [];\nwhile (simptomsArr.length < curTaskCount) {\n    var ind = Math.floor(Math.random() * _task0__WEBPACK_IMPORTED_MODULE_0__.test.length);\n    var tempSimptom = _task0__WEBPACK_IMPORTED_MODULE_0__.test[ind];\n    if (simptomsArr.indexOf(tempSimptom) == -1) {\n        simptomsArr.push(tempSimptom);\n        booksArr.push(_task0__WEBPACK_IMPORTED_MODULE_0__.books[ind]);\n    }\n}\n//screens\nvar stage0TitleScreen = document.getElementById('FirstScreen_Title');\nvar stage0GameScreen = document.getElementById('FirstScreen_Game');\nvar stage0ResultScreen = document.getElementById('FirstScreen_Result');\n//panels\nvar stage0ProgressBar = document.getElementById('FirstScreen_Game__results');\nvar stage0BookPanel = document.getElementById('FirstScreen_Game__booksList');\n//text\nvar stage0MainText = document.getElementById('FirstScreen_Game__simptom');\nvar stage0Books = document.getElementsByClassName('FirstScreen_Game__simptom');\n//buttons \nvar stage0StartButton = document.getElementById('FirstScreen_Title__but');\nvar stage0GameButton = document.getElementById('FirstScreen_Game__but');\nvar stage0ResultButton = document.getElementById('FinalScreen_Result__but');\nvar startStage0 = function () {\n    console.log(booksArr);\n    console.log(simptomsArr);\n};\n\n\n//# sourceURL=webpack:///./assets/scripts/stage0.ts?");
 
 /***/ }),
 

@@ -1,8 +1,6 @@
 //Start game
 import '../styles/main.scss';
-import stage0vare, * as s0 from './stage0';
-import { test } from './task0';
-import { books } from './task0';
+import { startStage0 } from './stage0';
  
 var startBut = document.getElementById('StartBut');
 
@@ -13,17 +11,13 @@ var ThirdScreen:HTMLElement = document.getElementById('ThirdScreen');
 var FinalScreen:HTMLElement = document.getElementById('FinalScreen');
 
 startBut!.onclick = function(){
-    TitleScreen!.style.left = '-1024px';
-    FirstScreen!.style.left = stage0vare + 'px';    
+    TitleScreen!.style.left = '-1024px'; 
+    FirstScreen!.style.left = '0px';
 }
 
 var globalScore:number = 0;
-console.log( test );
-console.log( books );
 
-function startStage0(){
-    
-}
+startStage0();
 function startStage1(){
 
 }

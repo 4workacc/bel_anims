@@ -1,26 +1,49 @@
 <!DOCTYPE html>
 <html lang='en'>
+
 <head>
     <meta charset='UTF-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>Parnass</title>
-    <link rel='stylesheet' href='./assets/main.css'></link>
+    <link rel='stylesheet' href='./assets/main.css'>
+    </link>
 </head>
-<body>    
-    <div id = 'MainScreen'>
-        <div id = 'TitleScreen' class = 'Screen'>
+
+<body>
+    <div id='MainScreen'>
+        <div id='TitleScreen' class='Screen'>
             <h2>Гiмназiя №1 г.Ашмяны</h2>
             <h2>Свiрбутовiч Марына Гендрыкаўна</h2>
             <h3>Мастак-афарміцель: Бернат Кацярына</h3>
             <h1>Анiмацыя 'Узыходжанне на Парнас'</h1>
-            <button id = 'StartBut'>Пачаць</button>
+            <button id='StartBut'>Пачаць</button>
         </div>
-        <div id = 'FirstScreen' class = 'Screen'>1</div>
-        <div id = 'SecondScreen' class = 'Screen'>2</div>
-        <div id = 'ThirdScreen' class = 'Screen'>3</div>
-        <div id = 'FinalScreen' class = 'Screen'></div>
+        <div id='FirstScreen' class='Screen'>
+            <div id='FirstScreen_Title' class = 'FirstScreen_Title'>
+                <div id='FirstScreen_Title__img'></div>
+                <h2 id = 'FirstScreen_Title__title'>Текст</h2>
+                <button id='FirstScreen_Title__but'>Start</button>
+            </div>
+            <div id='FirstScreen_Game'>
+                <div id='FirstScreen_Game__results'></div>
+                <div id='FirstScreen_Game__main'>
+                    <h2 id='FirstScreen_Game__simptom'></h2>
+                    <div id='FirstScreen_Game__booksList'>
+                        <p class='FirstScreen_Game__book'></p>
+                    </div>
+                </div>
+                <button id='FirstScreen_Game__but'>адказаць</button>
+            </div>
+            <div id='FirstScreen_Result'>
+                <button id='FinalScreen_Result__but'>далее</button>
+            </div>
+        </div>
+        <div id='SecondScreen' class='Screen'>2</div>
+        <div id='ThirdScreen' class='Screen'>3</div>
+        <div id='FinalScreen' class='Screen'></div>
     </div>
 </body>
 <script src='./assets/index_bundle.js'></script>
+
 </html>
