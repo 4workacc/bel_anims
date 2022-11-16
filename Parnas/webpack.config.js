@@ -1,10 +1,12 @@
 const path = require('path')
-const miniCss = require('mini-css-extract-plugin')
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   mode: 'development',
   entry: './assets/scripts/script.ts',
-
+  plugins: [new MiniCssExtractPlugin({
+    filename: 'assets/style/[name].css'
+  })],
   module: {
     rules: [
       { test: /\.(js)$/, use: 'babel-loader' },
@@ -14,26 +16,28 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
-        test:/\.(s*)css$/,
+        test: /\.s[ac]ss$/,
         use: [
-           miniCss.loader,
-           'css-loader',
-           'sass-loader',
-        ]
-     }
+          {
+            loader: MiniCssExtractPlugin.loader,            
+          },
+          'css-loader', 
+          'sass-loader'],
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        loader: 'file-loader',
+        options: {
+          outputPath: 'assets/images/',
+        },
+      },
     ],
-  },
-  plugins: [
-    new miniCss({
-      filename: 'style.css',
-   }),
-  ],
+  }, 
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
   },
-
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'assets/index_bundle.js'
+    filename: 'assets/index_bundle.js',  
   }
 }
