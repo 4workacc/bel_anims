@@ -109,6 +109,24 @@
   text-decoration: underline;
 }
 
+#FinalScreen_Result__img {
+  position: absolute;
+  left: 0;
+  top: 100px;
+  height: 600px;
+  width: 480px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.FinalScreen_Result__imgGood {
+  background-image: url(../../f56eee60cc335a57db2c.png);
+}
+
+.FinalScreen_Result__imgBad {
+  background-image: url(../../9245d8c51ddf46570576.png);
+}
+
 .Screen {
   width: 1027px;
   height: 768px;

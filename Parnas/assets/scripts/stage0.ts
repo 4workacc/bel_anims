@@ -1,14 +1,15 @@
 import { test } from './task0';
 import { books } from './task0';
 
-let curTaskCount: number = 10;
+let stage0TaskCount: number = 10;
 let curIndex: number = 0;
 
 let simptomsArr: string[] = [];
 let booksArr: string[] = [];
 let curRightBook: string = '';
+let rightAnswersCount: number = 0;
 
-while (simptomsArr.length < curTaskCount) {
+while (simptomsArr.length < stage0TaskCount) {
     let ind: number = Math.floor(Math.random() * test.length);
     let tempSimptom: string = test[ind];
     if (simptomsArr.indexOf(tempSimptom) == -1) {
@@ -26,9 +27,14 @@ const stage0ProgressBar: HTMLElement = document.getElementById('FirstScreen_Game
 const stage0BookPanel: HTMLElement = document.getElementById('FirstScreen_Game__booksList');
 //text
 const stage0MainText: HTMLElement = document.getElementById('FirstScreen_Game__simptomP');
+const stage0ResultScreenText: HTMLElement = document.getElementById('FinalScreen_Result__text');
 //buttons 
 const stage0ResultButton: HTMLElement = document.getElementById('FinalScreen_Result__but');
 const stage0StartButton: HTMLElement = document.getElementById('FirstScreen_Title__but');
+//imgs
+const stage0ResultScreenImg: HTMLElement = document.getElementById('FinalScreen_Result__img');
+
+
 
 stage0StartButton.onclick = () => {     
     generateShots();
@@ -39,7 +45,7 @@ stage0StartButton.onclick = () => {
 }
 
 const generateShots = () => {    
-    for ( let i: number = 0; i<curTaskCount; i++ ) {
+    for ( let i: number = 0; i<stage0TaskCount; i++ ) {
         let shot:HTMLElement = document.createElement('div');
         shot.classList.add('FirstScreen_Game__shot');
         shot.id = 'FirstScreen_Game__shot'+i;
@@ -79,11 +85,12 @@ const generateBooks = () => {
 
 const newStep = () => {    
     curIndex += 1;
-    if ( curIndex < curTaskCount ) {
+    if ( curIndex < stage0TaskCount ) {
         stage0MainText.innerHTML = simptomsArr[curIndex];
         generateBooks();
     }
     else {
+        showResult();
         stage0GameScreen.style.left = '-101%';
         stage0ResultScreen.style.left = '0'
     }   
@@ -91,9 +98,22 @@ const newStep = () => {
 
 const setShot = (userSelectedBook: string) => {
     if ( userSelectedBook === curRightBook ) {
+        rightAnswersCount += 1;
         document.getElementById('FirstScreen_Game__shot'+curIndex).style.backgroundColor = 'green';
     }
     else {
         document.getElementById('FirstScreen_Game__shot'+curIndex).style.backgroundColor = 'red';
+    }
+}
+
+const showResult = () => {
+    let stage0Score: number = rightAnswersCount/stage0TaskCount;
+    if ( stage0Score > 0.7 ) {
+        stage0ResultScreenText.innerHTML = 'Выдатна '+stage0Score;
+        stage0ResultScreenImg.classList.add('FinalScreen_Result__imgGood');
+    }
+    else {
+        stage0ResultScreenText.innerHTML = 'Дрэнна '+stage0Score ;
+        stage0ResultScreenImg.classList.add('FinalScreen_Result__imgBad');
     }
 }

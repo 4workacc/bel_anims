@@ -110,3 +110,21 @@ $screenHeight: 750px;
         text-decoration: underline;
     }
 }
+#FinalScreen_Result__img {
+    position: absolute;
+
+    left: 0;
+    top: 100px;
+
+    height: 600px;
+    width: 480px;
+        
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.FinalScreen_Result__imgGood{
+    background-image: url('../images/0_03.png');
+}
+.FinalScreen_Result__imgBad{
+    background-image: url('../images/0_02.png');
+}
