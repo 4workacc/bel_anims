@@ -1,6 +1,6 @@
 //Start game
 import '../styles/main.scss';
-import { startStage0 } from './stage0';
+import './stage0';
  
 var startBut = document.getElementById('StartBut');
 
@@ -17,14 +17,6 @@ startBut!.onclick = function(){
 
 var globalScore:number = 0;
 
-startStage0();
-function startStage1(){
 
-}
-function startStage2(){
 
-}
-function final(){
-
-}
 

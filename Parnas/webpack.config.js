@@ -19,25 +19,24 @@ module.exports = {
         test: /\.s[ac]ss$/,
         use: [
           {
-            loader: MiniCssExtractPlugin.loader,            
+            loader: MiniCssExtractPlugin.loader,
           },
-          'css-loader', 
+          {
+            loader: 'css-loader',
+            options: {
+              url: true
+            }
+          },
           'sass-loader'],
-      },
-      {
-        test: /\.(png|jpe?g|gif)$/i,
-        loader: 'file-loader',
-        options: {
-          outputPath: 'assets/images/',
-        },
-      },
+      },     
     ],
-  }, 
+  },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'assets/index_bundle.js',  
-  }
+    filename: 'assets/index_bundle.js',
+  },
+  watch: true
 }
