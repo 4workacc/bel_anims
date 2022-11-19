@@ -1,0 +1,13 @@
+#ThirdScreen_Title {
+    position: absolute;
+    width: $screenWidth;
+    height: $screenHeight;
+
+    left: -101%;
+}
+#ThirdScreen_Title{
+    left: 0;
+
+    background-image: url(../images/back42.png);
+    background-repeat: no-repeat;
+}

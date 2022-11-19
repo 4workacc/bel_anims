@@ -1,0 +1,17 @@
+$screenWidth: 1024px;
+$screenHeight: 750px;
+
+#SecondScreen_Title {
+    position: absolute;
+    width: $screenWidth;
+    height: $screenHeight;
+
+    left: -101%;
+}
+
+#SecondScreen_Title {
+    left: 0;
+
+    background-image: url(../images/back32.png);
+    background-repeat: no-repeat;
+}

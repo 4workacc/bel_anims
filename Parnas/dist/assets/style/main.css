@@ -17,17 +17,7 @@
 }
 
 #FirstScreen_Title {
-  background-image: url(../../fc30ad99467a1fd174b1.jpg);
-  background-repeat: no-repeat;
-}
-#FirstScreen_Title__img {
-  position: absolute;
-  left: 0;
-  top: 100px;
-  height: 600px;
-  width: 480px;
-  background-image: url(../../9ddd04cb703f71340154.png);
-  background-size: contain;
+  background-image: url(../../388ade6b8ed4af80f95c.png);
   background-repeat: no-repeat;
 }
 #FirstScreen_Title__title {
@@ -124,16 +114,54 @@
 }
 
 .FinalScreen_Result__imgGood {
-  background-image: url(../../f56eee60cc335a57db2c.png);
-}
-
-.FinalScreen_Result__imgBad {
   background-image: url(../../9245d8c51ddf46570576.png);
 }
 
+.FinalScreen_Result__imgBad {
+  background-image: url(../../f56eee60cc335a57db2c.png);
+}
+
 #FirstScreen_Result {
-  background-image: url(../../fc30ad99467a1fd174b1.jpg);
+  background-image: url(../../e07154f58d7ca7d91841.png);
   background-repeat: no-repeat;
+}
+
+#SecondScreen_Title {
+  position: absolute;
+  width: 1024px;
+  height: 750px;
+  left: -101%;
+}
+
+#SecondScreen_Title {
+  left: 0;
+  background-image: url(../../37df8ef54f0c2e56478d.png);
+  background-repeat: no-repeat;
+}
+
+#ThirdScreen_Title {
+  position: absolute;
+  width: 1024px;
+  height: 750px;
+  left: -101%;
+}
+
+#ThirdScreen_Title {
+  left: 0;
+  background-image: url(../../b5e6cc6a5c54f4a788ee.png);
+  background-repeat: no-repeat;
+}
+
+@font-face {
+  font-family: "Lobster";
+  src: url(../../03c38496322925fec242.ttf);
+}
+@font-face {
+  font-family: "Pacifico";
+  src: url(../../c0d735fc04154e03a691.ttf);
+}
+* {
+  font-family: "Pacifico";
 }
 
 .Screen {
@@ -163,11 +191,10 @@
   left: 0px;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
-  background-image: url(../../f596813ee03b964e0985.jpeg);
+  background-image: url(../../5c156a0d4f53d8609bed.png);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  color: yellow;
 }

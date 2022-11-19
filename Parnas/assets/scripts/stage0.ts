@@ -30,7 +30,7 @@ const stage0BookPanel: HTMLElement = document.getElementById('FirstScreen_Game__
 const stage0MainText: HTMLElement = document.getElementById('FirstScreen_Game__simptomP');
 const stage0ResultScreenText: HTMLElement = document.getElementById('FinalScreen_Result__text');
 //buttons 
-const stage0ResultButton: HTMLElement = document.getElementById('FinalScreen_Result__but');
+
 const stage0StartButton: HTMLElement = document.getElementById('FirstScreen_Title__but');
 //imgs
 const stage0ResultScreenImg: HTMLElement = document.getElementById('FinalScreen_Result__img');
