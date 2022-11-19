@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #MainScreen {
+        position: absolute;
+        width: 500px;
+        height: 600px;
+        left: 50%;
+        top: 20%;
+        margin-left: -250px;
+        margin-top: -150px;
+        box-shadow: 0 0 1px 1px lightblue;
+        
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border-radius: 10px;        
+    }
+    #Answers {
+        height: 200px;
+        width: 500px;      
+
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-self: center;
+        align-items: center;
+    }
+    #Answers div {
+        width: 45%;
+        height: 150px;
+        text-align: center;
+        border-top: 1px solid lightblue;    
+        border-bottom: 1px solid lightgray;
+
+        display: flex;
+
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+    }
+    #Head {
+        font: 40px "Times New Roman";
+    }
+    #Answers div:hover {
+        background-color: lightcyan;
+    }
+    #Left p, #Right p {
+        font: 25px  "Times New Roman";
+        font-weight: 800;
+    }
+    #Menu {
+        position: absolute;
+        width: 500px;
+        height: 100px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        align-self: center;
+        left: 50%;
+        top: 50%;
+        margin-left: -250px;
+        margin-top: -50px;
+    }
+    #Menu div {
+        width: 30px;
+        height: 30px;
+        align-content: center;
+        box-shadow: 0 0 1px 1px lightgray;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        border-radius: 4px;
+    }
+    #Menu div:hover{
+        box-shadow: 0 0 2px 2px gray;
+    }
+    .Pic {
+        width: 300px;
+        height: 300px;
+        margin: 0 auto;
+        
+        background-position: center;
+        background-repeat: no-repeat;
+              
+    }
+    
+</style>
+<body>
+    <div id = "Menu">
+        <div id = "Menu10" onclick = "menuHandler(10)">10</div>
+        <div id = "Menu15" onclick = "menuHandler(15)">15</div>
+        <div id = "Menu20" onclick = "menuHandler(20)">20</div>
+        <div id = "Menu25" onclick = "menuHandler(25)">25</div>
+    </div>
+    <div id = "MainScreen">
+        <div id = "Quest">
+            <p id = "Head">
+                Які варыянт правільны?
+            </p>
+        </div>
+        <div id = "Answers">
+            <div onclick="clickHandler(0)" id = "Left"><p id = "WordLeft"></p></div>
+            <div onclick="clickHandler(1)" id = "Right"><p id = "WordRight"></p></div>
+        </div>
+        <div class= "Pic">
+            <div class="PicNeutral"></div>
+        </div>
+    </div>
+</body>
+<script>
+    document.getElementsByClassName("Pic")[0].style.backgroundImage = "url('./img/good.jpg')";
+    document.getElementById("MainScreen").style.display = "none";
+    let arr = [
+        [
+            "Б’е",
+            "бъе",
+            "Б’е"
+        ],
+        [
+            "Носьбіт",
+            "нозьбіт",
+            "Носьбіт"
+        ],
+        [
+            "Дзядзька",
+            "дзяцька",
+            "Дзядзька"
+        ],
+        [
+            "Інжынер",
+            "інжэнер",
+            "Інжынер"
+        ],
+        [
+            "Балерына",
+            "балярына",
+            "Балерына"
+        ],
+        [
+            "Дзённік",
+            "дзёнік",
+            "Дзённік"
+        ],
+        [
+            "Сшытак",
+            "шшытак",
+            "Сшытак"
+        ],
+        [
+            "П’е",
+            "пъе",
+            "П’е"
+        ],
+        [
+            "Цягнік",
+            "цегнік",
+            "Цягнік"
+        ],
+        [
+            "Пясчаны",
+            "пяшчаны",
+            "Пясчаны"
+        ],
+        [
+            "Кефір",
+            "кяфір",
+            "Кефір"
+        ],
+        [
+            "Медзведзяня",
+            "мядзведзяня",
+            "Медзведзяня"
+        ],
+        [
+            "Пяшчотны",
+            "пясчотны",
+            "Пяшчотны"
+        ],
+        [
+            "Снег",
+            "сьнех",
+            "Снег"
+        ]
+        ,
+        [
+            "Надвор’е",
+            "надворье",
+            "Надвор’е"
+        ]
+        ,
+        [
+            "Камп’ютар",
+            "кампъютар",
+            "Камп’ютар"
+        ]
+        ,
+        [
+            "Пераказ",
+            "перакас",
+            "Пераказ"
+        ]
+        ,
+        [
+            "Сняжынка",
+            "снежынка",
+            "Сняжынка"
+        ]
+        ,
+        [
+            "Мыш",
+            "мышь",
+            "Мыш"
+        ]
+        ,
+        [
+            "Цётка",
+            "тётка",
+            "Цётка"
+        ]
+        ,
+        [
+            "Барацьба",
+            "барадзьба",
+            "Барацьба"
+        ]
+        ,
+        [
+            "Дзверы",
+            "дьверы",
+            "Дзверы"
+        ]
+        ,
+        [
+            "Адажыа",
+            "адажыо",
+            "Адажыа"
+        ]
+        ,
+        [
+            "Піке",
+            "пікэ",
+            "Піке"
+        ]
+        ,
+        [
+            "Вецярок",
+            "ветярок",
+            "Вецярок"
+        ]
+        ,
+        [
+            "Вясёлы",
+            "весёлы",
+            "Вясёлы"
+        ]
+        ,
+        [
+            "Калектыў",
+            "каляктыў",
+            "Калектыў"
+        ]
+        ,
+        [
+            "Легенда",
+            "лягенда",
+            "Легенда"
+        ]
+        ,
+        [
+            "Рэспубліка",
+            "республіка",
+            "Рэспубліка"
+        ]
+        ,
+        [
+            "Почырк",
+            "почерк",
+            "Почырк"
+        ]
+        ,
+        [
+            "Месяц",
+            "месец",
+            "Месяц"
+        ]
+        ,
+        [
+            "Каляндар",
+            "календар",
+            "Каляндар"
+        ]
+        ,
+        [
+            "Характар",
+            "характэр",
+            "Характар"
+        ]
+        ,
+        [
+            "Чамадан",
+            "чэмадан",
+            "Чамадан"
+        ]
+,
+        [
+            "Сезон",
+            "сязон",
+            "Сезон"
+        ]
+        ,
+        [
+            "Чэмпіён",
+            "чампіон",
+            "Чэмпіён"
+        ]
+        ,
+        [
+            "Восеньскі",
+            "восенскі",
+            "Восеньскі"
+        ]
+        ,
+        [
+            "Дзень",
+            "день",
+            "Дзень"
+        ]
+        ,
+        [
+            "Мяцеліца",
+            "метеліца",
+            "Мяцеліца"
+        ]
+        ,
+        [
+            "Дзяжурны",
+            "дзежурны",
+            "Дзяжурны"
+        ]
+        ,
+        [
+            "Дроб",
+            "дробь",
+            "Дроб"
+        ]
+        ,
+        [
+            "Усмешка",
+            "усьмешка",
+            "Усмешка"
+        ]
+        ,
+        [
+            "Ляснік",
+            "леснік",
+            "Ляснік"
+        ]
+        ,
+        [
+            "Леснічоўка",
+            "ляснічоўка",
+            "Леснічоўка"
+        ]
+        ,
+        [
+            "Вецер",
+            "ветер",
+            "Вецер"
+        ]
+        ,
+        [
+            "Хлеб",
+            "хлеп",
+            "Хлеб"
+        ]
+        ,
+        [
+            "Рэцепт",
+            "рацэпт",
+            "Рэцепт"
+        ]
+        ,
+        [
+            "Трыа",
+            "трыо",
+            "Трыа"
+        ]
+        ,
+        [
+            "Цэнтральны",
+            "цантральны",
+            "Цэнтральны"
+        ]
+        ,
+        [
+            "Лідар",
+            "лідэр",
+            "Лідар"
+        ]
+        ,
+        [
+            "Стагоддзе",
+            "стагодзе",
+            "Стагоддзе"
+        ]
+        ,
+        [
+            "Жыццё",
+            "жыцё",
+            "Жыццё"
+        ]
+        ,
+        [
+            "Акварыум",
+            "акварыўм",
+            "Акварыум"
+        ]
+        ,
+        [
+            "Радыус",
+            "радыўс",
+            "Радыус"
+        ]
+        ,
+        [
+            "Фанетыка",
+            "фанэтыка",
+            "Фанетыка"
+        ]
+        ,
+        [
+            "Дзяўчынка",
+            "дяўчынка",
+            "Дзяўчынка"
+        ]
+        ,
+        [
+            "Чалавек",
+            "челавек",
+            "Чалавек"
+        ]
+        ,
+        [
+            "Сонца",
+            "солнца",
+            "Сонца"
+        ]
+        ,
+        [
+            "Цвісці",
+            "цвесці",
+            "Цвісці"
+        ]
+        ,
+        [
+            "Настаўнік",
+            "настаунік",
+            "Настаўнік"
+        ]
+        ,
+        [
+            "Аўторак",
+            "ауторак",
+            "Аўторак"
+        ]
+        ,
+        [
+            "Бібліятэка",
+            "бібліатэка",
+            "Бібліятэка"
+        ]
+        ,
+        [
+            "Фіялка",
+            "фіалка",
+            "Фіялка"
+        ]
+        ,
+        [
+            "Аўторак",
+            "авторак",
+            "Аўторак"
+        ]
+        ,
+        [
+            "Паляўнічы",
+            "паляунічы",
+            "Паляўнічы"
+        ]
+        ,
+        [
+            "Хусцінка",
+            "хустінка",
+            "Хусцінка"
+        ]
+        ,
+        [
+            "Возера",
+            "озера",
+            "Возера"
+        ]
+        ,
+        [
+            "Павук",
+            "паўк",
+            "Павук"
+        ]
+        ,
+        [
+            "Дырыжор",
+            "дэрэжор",
+            "Дырыжор"
+        ]
+        ,
+        [
+            "Пейзаж",
+            "пяйзаж",
+            "Пейзаж"
+        ]
+        ,
+        [
+            "Універсітэт",
+            "уневерсытэт",
+            "Універсітэт"
+        ]
+        ,
+        [
+            "Расказаць",
+            "рассказаць",
+            "Расказаць"
+        ]
+        ,
+        [
+            "Тэлевізар",
+            "целевізар",
+            "Тэлевізар"
+        ]
+        ,
+        [
+            "Сцежка",
+            "стежка",
+            "Сцежка"
+        ]
+        ,
+        [
+            "Падпісаць",
+            "патпісаць",
+            "Падпісаць"
+        ]
+        ,
+        [
+            "Аддаць",
+            "атдаць",
+            "Аддаць"
+        ]
+        ,
+        [
+            "Здаць",
+            "сдаць",
+            "Здаць"
+        ]
+        ,
+        [
+            "Дзявяты",
+            "дзевяты",
+            "Дзявяты"
+        ]
+        ,
+        [
+            "Сямнаццаць",
+            "семнаццаць",
+            "Сямнаццаць"
+        ]
+        ,
+        [
+            "Сем",
+            "семь",
+            "Сем"
+        ]
+        ,
+        [
+            "Пачуццё",
+            "пачуцё",
+            "Пачуццё"
+        ]
+        ,
+        [
+            "Маці",
+            "маті",
+            "Маці"
+        ]
+        ,
+        [
+            "Гаварыць",
+            "гаварыть",
+            "Гаварыць"
+        ]
+        ,
+        [
+            "Маўленне",
+            "маулене",
+            "Маўленне"
+        ]
+        ,
+        [
+            "Навуковы",
+            "науковы",
+            "Навуковы"
+        ]
+        ,
+        [
+            "Кніжка",
+            "кнішка",
+            "Кніжка"
+        ]
+        ,
+        [
+            "Слязінка",
+            "слезінка",
+            "Слязінка"
+        ]
+        ,
+        [
+            "Дзеці",
+            "дзеті",
+            "Дзеці"
+        ]
+        ,
+        [
+            "Машына",
+            "машіна",
+            "Машына"
+        ]
+        ,
+        [
+            "Печ",
+            "печь",
+            "Печ"
+        ]
+        ,
+        [
+            "Стэп",
+            "степь",
+            "Стэп"
+        ]
+        ,
+        [
+            "Шаноўны",
+            "шановны",
+            "Шаноўны"
+        ]
+        ,
+        [
+            "Заданне",
+            "задане",
+            "Заданне"
+        ]
+        ,
+        [
+            "Пяцікласнікі",
+            "пятікласнікі",
+            "Пяцікласнікі"
+        ]
+        ,
+        [
+            "Кемлівы",
+            "кемлявы",
+            "Кемлівы"
+        ]
+        ,
+        [
+            "Чароўны",
+            "чароуны",
+            "Чароўны"
+        ]
+    ];
+    shuffle(arr);
+    let curIndex = 0;
+    let maxIndex = 10;
+    let rightCount = 0;
+    let badCount = 0;
+    
+
+    let curArr = [];   
+    
+    let wordLeft = document.getElementById("WordLeft");
+    let wordRight = document.getElementById("WordRight");
+
+    let lDiv = document.getElementById("Left");
+    let rDiv = document.getElementById("Right");
+    
+    function clickHandler( el ) {
+        let curElement;
+        let curDiv;
+        if ( el === 0 ) {
+            curElement = wordLeft;
+            curDiv = lDiv;
+        }
+        else {
+            curElement = wordRight;
+            curDiv = rDiv;
+        };
+
+        if ( curElement.innerHTML.toUpperCase() === curArr[curIndex][2].toUpperCase()) {
+            curDiv.style.backgroundColor = "green";                       
+            rightCount += 1;
+            document.getElementsByClassName("Pic")[0].style.backgroundImage = "url('./img/good2.jpg')";
+        }
+        else {
+            curDiv.style.backgroundColor = "red";            
+            if (badCount<10) {badCount += 1};
+            document.getElementsByClassName("Pic")[0].style.backgroundImage = "url('./img/bad1.png')";
+        }
+        curIndex += 1;
+        // let xx = (rightCount-badCount);
+        // if ( xx > -4 && xx < 4 ) {
+        //     document.getElementsByClassName("Pic")[0].style.backgroundImage = "url('./img/neutral.jpg')";
+        // }
+        // if ( rightCount  >= Math.floor( maxIndex / 2 )) {
+        //     document.getElementsByClassName("Pic")[0].style.backgroundImage = "url('./img/good.jpg')";
+        // }
+        // if ( rightCount === maxIndex ) {
+        //     document.getElementsByClassName("Pic")[0].style.backgroundImage = "url('./img/good2.jpg')";
+        // }
+        // if ( badCount  >= Math.floor( maxIndex / 2 )) {
+        //     document.getElementsByClassName("Pic")[0].style.backgroundImage = "url('./img/bad1.png')";
+        // } 
+        // if ( badCount === maxIndex ) {
+        //     document.getElementsByClassName("Pic")[0].style.backgroundImage = "url('./img/bad2.jpeg')";
+        // }
+        if ( curIndex < maxIndex ) {
+            setTimeout( Timer, 500);}
+        else {
+            setTimeout( ShowResult, 500);
+        }
+     
+    }
+    function Timer () {           
+            setCurShow(); 
+    };
+    function ShowResult() {
+        alert ( `Дакладна ${rightCount} з ${maxIndex} заданняў. Адзнака: ${9 - badCount}`);
+    }
+
+    function setCurShow() {
+        let qarr = [curArr[curIndex][0], curArr[curIndex][1]]; 
+        shuffle(qarr);       
+        wordLeft.innerHTML = qarr[0].toUpperCase();
+        wordRight.innerHTML = qarr[1].toUpperCase();
+
+        lDiv.style.backgroundColor = null;
+        rDiv.style.backgroundColor = null;
+    };
+    function shuffle(array) {
+        array.sort(() => Math.random() - 0.5);
+    }
+    function menuHandler( i ) {        
+       maxIndex = i;
+        curArr = arr.slice(0, i+1);
+        setCurShow();
+        document.getElementById("Menu").style.display = "none";
+        document.getElementById("MainScreen").style.display = "flex";
+    }
+    
+</script>
+</html>
