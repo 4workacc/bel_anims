@@ -16,6 +16,10 @@
   left: 0;
 }
 
+#FirstScreen_Title {
+  background-image: url(../../fc30ad99467a1fd174b1.jpg);
+  background-repeat: no-repeat;
+}
 #FirstScreen_Title__img {
   position: absolute;
   left: 0;
@@ -127,6 +131,11 @@
   background-image: url(../../9245d8c51ddf46570576.png);
 }
 
+#FirstScreen_Result {
+  background-image: url(../../fc30ad99467a1fd174b1.jpg);
+  background-repeat: no-repeat;
+}
+
 .Screen {
   width: 1027px;
   height: 768px;
@@ -156,4 +165,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  background-image: url(../../f596813ee03b964e0985.jpeg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: yellow;
 }

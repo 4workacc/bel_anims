@@ -1,3 +1,4 @@
+import { globalScore } from './script';
 import { test } from './task0';
 import { books } from './task0';
 
@@ -44,7 +45,7 @@ stage0StartButton.onclick = () => {
     stage0GameScreen.style.left = '0';
 }
 
-const generateShots = () => {    
+const generateShots = () => {   
     for ( let i: number = 0; i<stage0TaskCount; i++ ) {
         let shot:HTMLElement = document.createElement('div');
         shot.classList.add('FirstScreen_Game__shot');

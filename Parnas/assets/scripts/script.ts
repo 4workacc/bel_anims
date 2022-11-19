@@ -15,7 +15,7 @@ startBut!.onclick = function(){
     FirstScreen!.style.left = '0px';
 }
 
-var globalScore:number = 0;
+export let globalScore:number = 0;
 
 
 
