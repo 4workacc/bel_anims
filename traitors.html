@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body {
+        width: 1000px;
+        height: 750px;
+
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-top: -375px;
+        margin-left: -500px;
+        overflow: hidden;
+    }
+    .fio{
+        width: 300px;
+        height: 200px;        
+        position: absolute;
+
+        box-shadow: 0 0 1px 1px lightblue;
+        border-radius: 10%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        font-size: 40px;
+        text-align: center;
+        font-weight: 800;
+    }
+    .fio:hover {
+        background-color: lightblue;
+    }
+    #fam1 { left: 700px; top: 0; }
+    #fam2 { top: 550px}
+    #fam3 { left: 700px; top: 550px;}
+    #container {
+        position: absolute;
+        width: 100%;
+        height: 250px;
+        border: 1px solid black;
+        margin-top: 250px;
+        
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    #sent {
+        font-size: 40px;    
+        text-align: center;
+        -webkit-user-select: none;
+        -moz-user-select: none;   
+        -ms-user-select: none;
+    }
+    #answerBalls {
+        position: absolute;
+        top: 101%;
+        left: 50%;
+        margin-left: -250px;        
+        width: 500px;
+        height: 50px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .ball {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        border: none;
+        background-color: cadetblue;
+
+        transition: 0.5s;
+    }
+</style>
+<body>
+    <div id = "fams">        
+        <div id = "fam0" class = "fio"> Гуж</div>
+        <div id = "fam1" class = "fio"> Каландзёнак</div>
+        <div id = "fam2" class = "fio"> Недасека</div>
+        <div id = "fam3" class = "fio"> Свянткоўскі</div>        
+    </div>  
+    <div id = "container" onselectstart= "return false" >
+        <p 
+            id = "sent" 
+            onselectstart= "return false" ></p>        
+    </div>
+    <div id = "answerBalls">
+        <div id = "ball0" class = "ball"></div>
+        <div id = "ball1" class = "ball"></div>
+        <div id = "ball2" class = "ball"></div>
+        <div id = "ball3" class = "ball"></div>
+        <div id = "ball4" class = "ball"></div>
+        <div id = "ball5" class = "ball"></div>
+        <div id = "ball6" class = "ball"></div>
+        <div id = "ball7" class = "ball"></div>
+        <div id = "ball8" class = "ball"></div>
+        <div id = "ball9" class = "ball"></div>
+    </div>
+</body>
+<script>
+    const arr = [];
+    const ans = [];
+    arr[0] = "Паводзіў сябе па-гаспадарску, упэўнена. Ён ужо выпіў гарэлку, шклянка была пустая, азызлы твар яго трохі крывіўся, і ён адразу ўзяўся кроіць на лусты сала.";
+    arr[1] = "У калектывізацыю ён некуды ўцёк ад раскулачвання, а цяпер во зноў паявіўся з вінтоўкай у руках, каб помсціць людзям за мінулае ды піць гарэлку. ";
+    arr[2] = "Яго гадамі ненавідзела ўся вёска аж да самай вайны, калі ён пайшоў па першай мабілізацыі ў войска, ды во праз месяц вярнуўся, людзі казалі: немцы адпусцілі з лагера. ";
+    arr[3] = "І ён прыбыў у мястэчка, схуднелы, у вайсковых трантах, з вошамі за каршэнню. Дык во цяпер ад’ядаецца на паліцэйскіх харчах. ";
+    arr[4] = "З высокай ля кабіны прыступкі саскочыў мізэрненькі чалавек у капелюшы і даўгаватым пальтэчку. Сцепаніда ведала, што ён выладаў нямецкую мову. ";
+    arr[5] = "Падчас калектывізацыі. У сенцах бразнулі дзверы і, не атэпваючы ног, у хату ўвапхнуўся Патапка – рослы белатвары падлетак, падпярэзаны вяроўчынай па лапленай світцы. Не павітаўшыся, перш шмаргануў разы два счырванелым прастуджаным носам і прагугнявіў… ";
+    arr[6] = "Спатнелы, чорны, цыганскага выгляду.";
+    arr[7] = "Маўклівы пераростак, які сваёй увішнасцю нарабіў такога, што хіба сам не разумее чаго. Што ён табе можа зрабіць гэты маўчун, таго не ўзнаеш. Дзеці ў весцы ніколі не гулялі з ім ў дзіцячыя гульні, абміналі яго.Заўжды ён быў сам па сабе. ";
+    arr[8] = "«Ніякай літасці класаваму ворагу!» – такім заклікам канчалася тая заметка. Падпісана яна была загадкава – проста: селькор. ";
+    arr[9] = "Твар, як ні дзіўна, не выдаваў нічога: ні асаблівай злосці, ні строгасці, ні якой пагрозы, толькі вочы былі дужа пільныя і сцюдзёныя. ";
+
+    // Гуж
+    ans[0] = [0, 1, 9]
+    // Каландзёнак
+    ans[1] = [8, 7, 5, 2 ,3];
+    // Недасека
+    ans[2] = [6];
+    // Свянткоўскі
+    ans[3] = [4];
+
+    let fio0 = document.getElementById("fam0");
+    let fio1 = document.getElementById("fam1");
+    let fio2 = document.getElementById("fam2");
+    let fio3 = document.getElementById("fam3");
+    let sentence = document.getElementById("sent")
+    
+    let curQuestionIndex = -1;
+
+    function setQuestion(){
+        if ( curQuestionIndex < 9 ) {
+            curQuestionIndex += 1;
+            sentence.innerHTML = arr[ curQuestionIndex ];
+            container.style.left = 0 + "px";
+            container.style.top = 0 + "px";
+            container.style.marginTop = 250 + "px"; 
+        }
+        else {            
+            container.style.display = "none";
+            alert(`Вынік: ${rightCount} з 10`);
+        }
+        curAnswerElement = -1;
+    }
+
+    window.onload = function(){
+        setQuestion()
+    }
+
+    // dragging
+    let container = document.getElementById("container");   
+    let draggingElement = 1;
+
+    container.onmousedown = ( e ) => {
+        draggingElement = container;        
+    }   
+    sentence.onmousedown = ( e ) => {
+        draggingElement = container;   
+    }
+
+    window.onmousemove = ( e ) => {        
+        if ( draggingElement != 1 ) {           
+            moveAt( e );
+            isInFio0(e);
+            isInFio1(e);
+            isInFio2(e);
+            isInFio3(e);
+        };
+       
+    }
+    window.onmouseup = ( e ) => {   
+        if ( curAnswerElement != -1 ) {
+            draggingElement = 1;
+            fio0.style.backgroundColor = "lightblue";
+            fio1.style.backgroundColor = "lightblue";
+            fio2.style.backgroundColor = "lightblue";
+            fio3.style.backgroundColor = "lightblue";
+            checkRight();
+            setQuestion();            
+        }  
+        
+    }
+
+    function moveAt(e) {
+        draggingElement.style.left = e.pageX - draggingElement.offsetWidth / 2 + 'px';
+        draggingElement.style.top = e.pageY - draggingElement.offsetHeight*1.5 + 'px';
+    }
+
+    const isInFio0 = ( e ) => {
+        let coord = fio0.getBoundingClientRect();
+        if (( e.pageX > coord.left ) && ( e.pageX < coord.left + 301 )) {
+            if (( e.pageY > coord.top ) && ( e.pageY < coord.top + 201 )) {                
+                fio0.style.backgroundColor = "red";
+                fio1.style.backgroundColor = "lightblue";
+                fio2.style.backgroundColor = "lightblue";
+                fio3.style.backgroundColor = "lightblue";
+                curAnswerElement = 0;                
+            }
+        }
+    };
+    const isInFio1 = ( e ) => {
+        let coord = fio1.getBoundingClientRect();
+        if (( e.pageX > coord.left ) && ( e.pageX < coord.left + 301 )) {
+            if (( e.pageY > coord.top ) && ( e.pageY < coord.top + 201 )) {
+                fio0.style.backgroundColor = "lightblue";
+                fio1.style.backgroundColor = "red";
+                fio2.style.backgroundColor = "lightblue";
+                fio3.style.backgroundColor = "lightblue";
+                curAnswerElement = 1;               
+            }
+        }
+    };
+    const isInFio2 = ( e ) => {
+        let coord = fio2.getBoundingClientRect();
+        if (( e.pageX > coord.left ) && ( e.pageX < coord.left + 301 )) {
+            if (( e.pageY > coord.top ) && ( e.pageY < coord.top + 201 )) {
+                fio0.style.backgroundColor = "lightblue";
+                fio1.style.backgroundColor = "lightblue";
+                fio2.style.backgroundColor = "red";
+                fio3.style.backgroundColor = "lightblue";
+                curAnswerElement = 2;                
+            }
+        }
+    };
+    const isInFio3 = ( e ) => {
+        let coord = fio3.getBoundingClientRect();
+        if (( e.pageX > coord.left ) && ( e.pageX < coord.left + 301 )) {
+            if (( e.pageY > coord.top ) && ( e.pageY < coord.top + 201 )) {
+                fio0.style.backgroundColor = "lightblue";
+                fio1.style.backgroundColor = "lightblue";
+                fio2.style.backgroundColor = "lightblue";
+                fio3.style.backgroundColor = "red";
+                curAnswerElement = 3;                
+            }
+        }
+    };
+    //
+    let rightCount = 0;
+    let curAnswerElement = -1;
+    let balls = document.getElementsByClassName('ball');
+    const checkRight = () => {
+        if ( ans[ curAnswerElement ].indexOf( curQuestionIndex ) != -1 ) {
+            rightCount += 1;
+            balls[ curQuestionIndex ].style.backgroundColor = "green"; 
+        }
+        else {
+            balls[ curQuestionIndex ].style.backgroundColor = "red";
+        }
+    };
+
+</script>
+</html>
