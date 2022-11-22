@@ -126,17 +126,24 @@
   background-repeat: no-repeat;
 }
 
-#SecondScreen_Title {
+#SecondScreen_Title, #SecondScreen_Game, #SecondScreen_Result {
   position: absolute;
   width: 1024px;
   height: 750px;
-  left: -101%;
+  left: 101%;
 }
 
 #SecondScreen_Title {
   left: 0;
   background-image: url(../../37df8ef54f0c2e56478d.png);
   background-repeat: no-repeat;
+}
+
+#SecondScreen_Game__map {
+  height: 765px;
+  width: 857px;
+  background-image: url(../../b0f7aef1178db0453003.png);
+  background-size: contain;
 }
 
 #ThirdScreen_Title {

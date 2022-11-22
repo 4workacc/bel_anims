@@ -1,12 +1,12 @@
 $screenWidth: 1024px;
 $screenHeight: 750px;
 
-#SecondScreen_Title {
+#SecondScreen_Title, #SecondScreen_Game, #SecondScreen_Result {
     position: absolute;
     width: $screenWidth;
     height: $screenHeight;
 
-    left: -101%;
+    left: 101%;
 }
 
 #SecondScreen_Title {
@@ -14,4 +14,14 @@ $screenHeight: 750px;
 
     background-image: url(../images/back32.png);
     background-repeat: no-repeat;
+}
+#SecondScreen_Game{
+
+    &__map {
+        height: 765px;
+        width: 857px;
+
+        background-image: url(/assets/images/map.png);        
+        background-size: contain;
+    }
 }
