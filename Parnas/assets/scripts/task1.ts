@@ -63,7 +63,7 @@ let stage1Authors:IMan[] = [
     {
         fio: "Цётка",
         address: "фальварак Пешчын, Лідскі раён",
-        coords: "",
+        coords: "166; 374",
         img: ""
     },
     {
