@@ -25,3 +25,37 @@ $screenHeight: 750px;
         background-size: contain;
     }
 }
+#SecondScreen_Game__card {
+    display: none;
+    opacity: 0;   
+    width: 500px;
+    height: 400px;
+    background-color: white;
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+    margin-left: -200px;
+    margin-top: -250px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#SecondScreen_card__authors {
+    width: 500px;
+    height: 250px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.SecondScreen_card__author {
+    width: 100px;
+    height: 175px;
+    border: 1px solid black
+}

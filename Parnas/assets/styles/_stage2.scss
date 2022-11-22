@@ -11,3 +11,16 @@
     background-image: url(../images/back42.png);
     background-repeat: no-repeat;
 }
+.Geomark {
+    width: 36px;
+    height: 50px;
+    background-image: url(/assets/images/geomark_neutral.png);
+
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    margin-top: -50px;
+    margin-left: -18px;
+
+    position: absolute;
+}
