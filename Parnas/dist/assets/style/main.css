@@ -163,6 +163,7 @@
   justify-content: space-around;
   padding-top: 10px;
   padding-bottom: 10px;
+  z-index: 20;
 }
 
 #SecondScreen_card__authors {
@@ -190,6 +191,26 @@
   padding: 0;
 }
 
+.Geomark, .SecondScreen_card__rightMark, .SecondScreen_card__badMark {
+  width: 36px;
+  height: 50px;
+  background-image: url(../../7772e4e47452b350dac8.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-top: -50px;
+  margin-left: -18px;
+  position: absolute;
+  z-index: 10;
+}
+
+.SecondScreen_card__rightMark {
+  background-image: url(../../75b1ee61bccaf2ae62b3.png);
+}
+
+.SecondScreen_card__badMark {
+  background-image: url(../../a9089bf57cb11f79d5ea.png);
+}
+
 #ThirdScreen_Title {
   position: absolute;
   width: 1024px;
@@ -201,17 +222,6 @@
   left: 0;
   background-image: url(../../b5e6cc6a5c54f4a788ee.png);
   background-repeat: no-repeat;
-}
-
-.Geomark {
-  width: 36px;
-  height: 50px;
-  background-image: url(../../7772e4e47452b350dac8.png);
-  background-size: contain;
-  background-repeat: no-repeat;
-  margin-top: -50px;
-  margin-left: -18px;
-  position: absolute;
 }
 
 @font-face {
