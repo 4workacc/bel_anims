@@ -205,10 +205,12 @@
 
 .SecondScreen_card__rightMark {
   background-image: url(../../75b1ee61bccaf2ae62b3.png);
+  z-index: 1;
 }
 
 .SecondScreen_card__badMark {
   background-image: url(../../a9089bf57cb11f79d5ea.png);
+  z-index: 1;
 }
 
 .SecondScreen_Result {
@@ -233,17 +235,60 @@
   background-image: url(../../65e7014bbffe9f0e6340.png);
 }
 
-#ThirdScreen_Title {
+#ThirdScreen_Title, #ThirdScreen_Game, #ThirdScreen_Results {
   position: absolute;
   width: 1024px;
   height: 750px;
-  left: -101%;
+  left: 101%;
 }
 
 #ThirdScreen_Title {
   left: 0;
   background-image: url(../../b5e6cc6a5c54f4a788ee.png);
   background-repeat: no-repeat;
+}
+
+#ThirdScreen_Game__results {
+  width: 1024px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  height: 50px;
+  top: 0;
+}
+
+.ThirdScreen_Game__result {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.ThirdScreen_Game__resultbad {
+  background-color: red;
+}
+.ThirdScreen_Game__resultgood {
+  background-color: green;
+}
+
+#ThirdScreen_Game__title {
+  width: 100%;
+  text-align: center;
+  font-size: 50px;
+}
+
+#ThirdScreen_Game__fios {
+  width: 100%;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ThirdScreen_Game__fio {
+  font-size: 30px;
+  width: 100%;
+  text-align: center;
 }
 
 @font-face {
@@ -259,8 +304,8 @@
 }
 
 .Screen {
-  width: 1027px;
-  height: 768px;
+  width: 1024px;
+  height: 750px;
   position: absolute;
   left: 1024px;
 }

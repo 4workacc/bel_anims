@@ -3,7 +3,9 @@
 @import 'stage1.scss';
 @import 'stage2.scss';
 
-$x:1027px;
+$screenWidth: 1024px;
+$screenHeight: 750px;
+
 @font-face {
     font-family: 'Lobster';
     src: url(../fonts/Lobster-Regular.ttf);
@@ -16,8 +18,8 @@ $x:1027px;
     font-family: 'Pacifico';
 }
 .Screen {
-    width: $x;
-    height: 768px;
+    width: $screenWidth;
+    height: $screenHeight;
     position: absolute;
 
     left: 1024px;       

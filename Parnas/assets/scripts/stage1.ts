@@ -1,6 +1,6 @@
 import { IMan, stage1Authors } from "./task1";
 
-const stage1StartButton: HTMLElement  = document.getElementById('SecondScreen_Title__but');
+const stage1StartButton: HTMLElement = document.getElementById('SecondScreen_Title__but');
 
 const stage1TitleScreen: HTMLElement = document.getElementById('SecondScreen_Title');
 const stage1GameScreen: HTMLElement = document.getElementById('SecondScreen_Game');
@@ -14,35 +14,34 @@ let stage1RightCount: number = 0;
 let stage1CurAuthor: IMan = stage1Authors[0];
 const stage1CurAuthors: IMan[] = [];
 const randIndexArr: number[] = [];
-let curMarkX:number = -100;
+let curMarkX: number = -100;
 let curMarkY: number = -100;
 `#####################################################`
 // 
 const stage1ShowResultScreen = () => {
-    stage1GameScreen.style.left = '-101%';    
+    stage1GameScreen.style.left = '-101%';
     let stage1ResultImg: HTMLElement = document.getElementById('SecondScreen_Result__img');
     let stage1ResultTitle: HTMLElement = document.getElementById('SecondScreen_Result__title');
-    if ( stage1RightCount >3 ) {
+    if (stage1RightCount > 3) {
         stage1ResultImg.classList.add('SecondScreen_Result__imggood');
         stage1ResultTitle.innerHTML = 'Добра';
     }
     else {
         stage1ResultImg.classList.add('SecondScreen_Result__imgbad');
         stage1ResultTitle.innerHTML = 'Дрэнна';
-    }    
+    }
     stage1ResultScreen.style.left = '0';
 }
 //
 stage1StartButton.onclick = () => {
     // GENERATE CUR AUTHORS SET
-        while (stage1CurAuthors.length < 5) {
-            let randInd: number = Math.floor(Math.random() * stage1Authors.length);
-            if (randIndexArr.indexOf(randInd) === -1) {
-                randIndexArr.push(randInd);
-                stage1CurAuthors.push(stage1Authors[randInd]);
-            }
-        }             
-        console.log(stage1CurAuthors)
+    while (stage1CurAuthors.length < 5) {
+        let randInd: number = Math.floor(Math.random() * stage1Authors.length);
+        if (randIndexArr.indexOf(randInd) === -1) {
+            randIndexArr.push(randInd);
+            stage1CurAuthors.push(stage1Authors[randInd]);
+        }
+    }
     stage1TitleScreen.style.left = '-101%';
     stage1SetGeomarks();
     stage1GameScreen.style.left = '0';
@@ -60,7 +59,7 @@ const stage1ShowCard = () => {
 const stage1HideCard = () => {
     stage1GameCard.style.left = '101%';
     stage1GameCard.style.opacity = '0';
-    stage1GameCard.style.display = 'none';   
+    stage1GameCard.style.display = 'none';
     while (stage1AuthorsPanel.firstChild) {
         stage1AuthorsPanel.removeChild(stage1AuthorsPanel.firstChild);
     }
@@ -68,24 +67,24 @@ const stage1HideCard = () => {
 //
 const stage1CardTitle: HTMLElement = document.getElementById('SecondScreen_Card__title');
 
-const stage1RandomPortraits = ( ind: number ): string[] => {   
-   
-    let randImgs:any[] = [];
-    while ( randImgs.length < 5 ) {
-        let indx: number = Math.floor( Math.random() * stage1Authors.length);
-        if ( randImgs.indexOf( stage1Authors[indx].img) === -1) {
-            randImgs.push (stage1Authors[indx].img);
+const stage1RandomPortraits = (ind: number): string[] => {
+
+    let randImgs: any[] = [];
+    while (randImgs.length < 5) {
+        let indx: number = Math.floor(Math.random() * stage1Authors.length);
+        if (randImgs.indexOf(stage1Authors[indx].img) === -1) {
+            randImgs.push(stage1Authors[indx].img);
         }
     }
-    if ( randImgs.indexOf( stage1CurAuthor.img) === -1) {
-        randImgs[Math.floor( Math.random()*4)] = stage1CurAuthor.img;
-    }    
-   
+    if (randImgs.indexOf(stage1CurAuthor.img) === -1) {
+        randImgs[Math.floor(Math.random() * 4)] = stage1CurAuthor.img;
+    }
+
     return randImgs;
 }
 
-const generatePortraits = ( ind: number ) => {    
-    let por: string[] = stage1RandomPortraits(ind);   
+const generatePortraits = (ind: number) => {
+    let por: string[] = stage1RandomPortraits(ind);
     for (var i: number = 0; i < 5; i++) {
         let port: HTMLElement = document.createElement('div');
         port.classList.add('SecondScreen_card__author');
@@ -95,29 +94,29 @@ const generatePortraits = ( ind: number ) => {
         stage1AuthorsPanel.appendChild(port);
     }
 };
-const portClickHandler = (e: any) => {    
-    stage1HideCard();    
-    if(stage1CurAuthor.img === e.target.style.backgroundImage.split('/')[4].split('.')[0] ) {
-        stage1RightCount += 1;   
-        generateRightMark();    
+const portClickHandler = (e: any) => {
+    stage1HideCard();
+    if (stage1CurAuthor.img === e.target.style.backgroundImage.split('/')[4].split('.')[0]) {
+        stage1RightCount += 1;
+        generateRightMark();
     }
     else {
         generateBadMark();
     };
     stage1CurAnswerCount += 1;
-    if ( stage1CurAnswerCount === 5 ) {
+    if (stage1CurAnswerCount === 5) {
         stage1ShowResultScreen();
-    }   
+    }
     stage1CurCLickedMark.style.display = 'none';
 }
 
-const stage1GenerateCard = ( ind: number, newX:number, newY: number ) => {
+const stage1GenerateCard = (ind: number, newX: number, newY: number) => {
     stage1CardTitle.innerHTML = stage1CurAuthors[ind].address;
-    stage1CurCLickedMark = document.getElementById(`stage1Geomark${ind}`);   
+    stage1CurCLickedMark = document.getElementById(`stage1Geomark${ind}`);
     stage1CurAuthor = stage1CurAuthors[ind];
     curMarkX = newX;
     curMarkY = newY;
-    generatePortraits( ind );
+    generatePortraits(ind);
     stage1ShowCard();
 }
 
@@ -135,9 +134,8 @@ const stage1SetGeomarks = () => {
     }
 }
 
-const generateRightMark = () => {
-    console.log(1);
-    
+const generateRightMark = () => {  
+
     let m: HTMLElement = document.createElement('div');
     m.classList.add('SecondScreen_card__rightMark');
     m.style.left = curMarkX + 'px';

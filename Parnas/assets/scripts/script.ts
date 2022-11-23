@@ -2,6 +2,7 @@
 import '../styles/main.scss';
 import './stage0';
 import './stage1';
+import './stage2';
  
 var startBut = document.getElementById('StartBut');
 

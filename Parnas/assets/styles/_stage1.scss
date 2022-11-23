@@ -1,5 +1,3 @@
-$screenWidth: 1024px;
-$screenHeight: 750px;
 
 #SecondScreen_Title, #SecondScreen_Game, #SecondScreen_Result {
     position: absolute;
@@ -88,10 +86,12 @@ $screenHeight: 750px;
 }
 .SecondScreen_card__rightMark {
     background-image: url(/assets/images/markGood.png);
+    z-index: 1;
  
 }
 .SecondScreen_card__badMark {
     background-image: url(/assets/images/markBad.png);
+    z-index: 1;
    
 }
 
@@ -112,9 +112,9 @@ $screenHeight: 750px;
 
 .SecondScreen_Result__img {
     &good {
-        background-image: url(/assets/images/1_01.png);
+        background-image: url(/assets/images/1_01.png);        
     }
     &bad {
-        background-image: url(/assets/images/1_03.png);
+        background-image: url(/assets/images/1_03.png);        
     }
 }
