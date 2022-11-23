@@ -31,9 +31,10 @@ $screenHeight: 750px;
     width: 500px;
     height: 400px;
     background-color: white;
+    left: 101%;
 
     position: absolute;
-    left: 50%;
+    // left: 50%;
     top: 50%;
 
     margin-left: -200px;
@@ -42,7 +43,9 @@ $screenHeight: 750px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 #SecondScreen_card__authors {
@@ -57,5 +60,14 @@ $screenHeight: 750px;
 .SecondScreen_card__author {
     width: 100px;
     height: 175px;
-    border: 1px solid black
+    border: 1px solid black;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+#SecondScreen_Card__title {
+    font-size: 30px;
+    width: 100%;
+    text-align: center;
+    padding: 0;
 }
