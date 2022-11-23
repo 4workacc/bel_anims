@@ -211,6 +211,28 @@
   background-image: url(../../a9089bf57cb11f79d5ea.png);
 }
 
+.SecondScreen_Result {
+  display: flex;
+  flex-direction: column;
+}
+
+#SecondScreen_Result__img {
+  width: 389px;
+  height: 650px;
+  position: absolute;
+  left: 0;
+  top: 150px;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.SecondScreen_Result__imggood {
+  background-image: url(../../1098c79808207f12281f.png);
+}
+.SecondScreen_Result__imgbad {
+  background-image: url(../../65e7014bbffe9f0e6340.png);
+}
+
 #ThirdScreen_Title {
   position: absolute;
   width: 1024px;

@@ -94,3 +94,27 @@ $screenHeight: 750px;
     background-image: url(/assets/images/markBad.png);
    
 }
+
+.SecondScreen_Result {
+    display: flex;
+    flex-direction: column;
+}
+
+#SecondScreen_Result__img {
+    width: 389px;
+    height: 650px;
+    position: absolute;
+    left: 0;
+    top: 150px;
+    background-size: contain;
+    background-repeat: no-repeat;    
+}
+
+.SecondScreen_Result__img {
+    &good {
+        background-image: url(/assets/images/1_01.png);
+    }
+    &bad {
+        background-image: url(/assets/images/1_03.png);
+    }
+}

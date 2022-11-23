@@ -20,6 +20,16 @@ let curMarkY: number = -100;
 // 
 const stage1ShowResultScreen = () => {
     stage1GameScreen.style.left = '-101%';    
+    let stage1ResultImg: HTMLElement = document.getElementById('SecondScreen_Result__img');
+    let stage1ResultTitle: HTMLElement = document.getElementById('SecondScreen_Result__title');
+    if ( stage1RightCount >3 ) {
+        stage1ResultImg.classList.add('SecondScreen_Result__imggood');
+        stage1ResultTitle.innerHTML = 'Добра';
+    }
+    else {
+        stage1ResultImg.classList.add('SecondScreen_Result__imgbad');
+        stage1ResultTitle.innerHTML = 'Дрэнна';
+    }    
     stage1ResultScreen.style.left = '0';
 }
 //
@@ -59,7 +69,7 @@ const stage1HideCard = () => {
 const stage1CardTitle: HTMLElement = document.getElementById('SecondScreen_Card__title');
 
 const stage1RandomPortraits = ( ind: number ): string[] => {   
-    console.log('!'+ind)
+   
     let randImgs:any[] = [];
     while ( randImgs.length < 5 ) {
         let indx: number = Math.floor( Math.random() * stage1Authors.length);
@@ -69,8 +79,8 @@ const stage1RandomPortraits = ( ind: number ): string[] => {
     }
     if ( randImgs.indexOf( stage1CurAuthor.img) === -1) {
         randImgs[Math.floor( Math.random()*4)] = stage1CurAuthor.img;
-    }          
-    console.log(randImgs);
+    }    
+   
     return randImgs;
 }
 
@@ -141,3 +151,4 @@ const generateBadMark = () => {
     m.style.top = curMarkY + 'px';
     document.getElementById('SecondScreen_Game__map').appendChild(m);
 }
+
