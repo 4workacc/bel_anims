@@ -1,4 +1,4 @@
-import { globalScore } from './script';
+import { globalScore } from './index';
 import { test } from './task0';
 import { books } from './task0';
 

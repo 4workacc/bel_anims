@@ -89,14 +89,15 @@ const generatePortraits = (ind: number) => {
         let port: HTMLElement = document.createElement('div');
         port.classList.add('SecondScreen_card__author');
         port.id = 'SecondScreen_card__author' + i;
-        port.style.backgroundImage = `url(../assets/images/stage1/${por[i]}.jpg)`
+        port.style.backgroundImage = `url(assets/images/stage1/${por[i]}.jpg)`
         port.onclick = (e) => portClickHandler(e);
         stage1AuthorsPanel.appendChild(port);
     }
 };
 const portClickHandler = (e: any) => {
-    stage1HideCard();
-    if (stage1CurAuthor.img === e.target.style.backgroundImage.split('/')[4].split('.')[0]) {
+    stage1HideCard();    
+    let z:string[] = (e.target.style.backgroundImage).split('/');    
+    if (stage1CurAuthor.img === z[3].split('.')[0]) {
         stage1RightCount += 1;
         generateRightMark();
     }
@@ -135,7 +136,6 @@ const stage1SetGeomarks = () => {
 }
 
 const generateRightMark = () => {  
-
     let m: HTMLElement = document.createElement('div');
     m.classList.add('SecondScreen_card__rightMark');
     m.style.left = curMarkX + 'px';
