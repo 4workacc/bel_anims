@@ -15,7 +15,7 @@ $screenHeight: 750px;
 }
 
 #FirstScreen_Title {   
-    background-image: url(../../assets/images/back01.png);
+    background-image: url(../../assets/images/global/back01.png);
     background-repeat: no-repeat;
     // &__img {
     //     position: absolute;
@@ -125,12 +125,12 @@ $screenHeight: 750px;
     background-repeat: no-repeat;
 }
 .FinalScreen_Result__imgGood{
-    background-image: url(../../assets/images/0_02.png);
+    background-image: url(../../assets/images/stage0/0_02.png);
 }
 .FinalScreen_Result__imgBad{
-    background-image: url(../../assets/images/0_03.png);
+    background-image: url(../../assets/images/stage0/0_03.png);
 }
 #FirstScreen_Result {
-    background-image: url(../../assets/images/back22.png);
+    background-image: url(../../assets/images/global/back22.png);
     background-repeat: no-repeat;
 }

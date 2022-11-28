@@ -33,15 +33,25 @@ module.exports = {
             },
             {
                 test: /\.(png|jpg|jpeg|gif)$/i,
-                loader: 'file-loader',
-                options: {
-                    name: 'assets/[folder]/[name].[ext]'
-                }
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {                           
+                            name: 'assets/images/[folder]/[name].[ext]'
+                        }
+                    }
+                ]
             },
             {
                 test: /\.(woff|woff2|eot|ttf|otf)$/i,
-                loader: 'file-loader',
-                options: { outputPath: 'assets/fonts', publicPath: '../fonts', useRelativePaths: true }
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {                           
+                            name: 'assets/fonts/[name].[ext]'
+                        }
+                    }
+                ]
             }
         ],
     },

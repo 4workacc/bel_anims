@@ -10,7 +10,7 @@
 #SecondScreen_Title {
     left: 0;
 
-    background-image: url(../../assets/images/back32.png);
+    background-image: url(../../assets/images/global/back32.png);
     background-repeat: no-repeat;
 }
 #SecondScreen_Game{
@@ -19,7 +19,7 @@
         height: 765px;
         width: 857px;
 
-        background-image: url(../../assets/images/map.png);        
+        background-image: url(../../assets/images/stage1/map.png);        
         background-size: contain;
     }
 }
@@ -73,7 +73,7 @@
 .Geomark, .SecondScreen_card__rightMark, .SecondScreen_card__badMark {
     width: 36px;
     height: 50px;
-    background-image: url(../../assets/images/geomark_neutral.png);
+    background-image: url(../../assets/images/stage1/geomark_neutral.png);
 
     background-size: contain;
     background-repeat: no-repeat;
@@ -85,12 +85,12 @@
     z-index: 10;
 }
 .SecondScreen_card__rightMark {
-    background-image: url(../../assets/images/markGood.png);
+    background-image: url(../../assets/images/stage1/markGood.png);
     z-index: 1;
  
 }
 .SecondScreen_card__badMark {
-    background-image: url(../../assets/images/markBad.png);
+    background-image: url(../../assets/images/stage1/markBad.png);
     z-index: 1;
    
 }
@@ -112,9 +112,9 @@
 
 .SecondScreen_Result__img {
     &good {
-        background-image: url(../../assets/images/1_01.png);        
+        background-image: url(../../assets/images/stage1/1_01.png);        
     }
     &bad {
-        background-image: url(../../assets/images/1_03.png);        
+        background-image: url(../../assets/images/stage1/1_03.png);        
     }
 }
