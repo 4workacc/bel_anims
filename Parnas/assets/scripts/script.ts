@@ -1,5 +1,6 @@
 //Start game
 import '../styles/main.scss';
+
 import './stage0';
 import './stage1';
 import './stage2';

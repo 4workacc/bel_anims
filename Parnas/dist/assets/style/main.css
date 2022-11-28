@@ -1,6 +1,6 @@
-/*!**********************************************************************************************************************************************!*\
-  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/sass-loader/dist/cjs.js!./assets/styles/main.scss ***!
-  \**********************************************************************************************************************************************/
+/*!**************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[2].use[1]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[2].use[2]!./assets/styles/main.scss ***!
+  \**************************************************************************************************************************************************************************/
 #FirstScreen_Title, #FirstScreen_Game, #FirstScreen_Result {
   position: absolute;
   width: 1024px;
@@ -17,7 +17,7 @@
 }
 
 #FirstScreen_Title {
-  background-image: url(../../388ade6b8ed4af80f95c.png);
+  background-image: url(/dist/assets/images/5c156a0d4f53d8609bed1749bb3dc276.png);
   background-repeat: no-repeat;
 }
 #FirstScreen_Title__title {
@@ -114,15 +114,15 @@
 }
 
 .FinalScreen_Result__imgGood {
-  background-image: url(../../9245d8c51ddf46570576.png);
+  background-image: url(../../daebaf413d5580fe7656.png);
 }
 
 .FinalScreen_Result__imgBad {
-  background-image: url(../../f56eee60cc335a57db2c.png);
+  background-image: url(../../0d46a6f225d65b498560.png);
 }
 
 #FirstScreen_Result {
-  background-image: url(../../e07154f58d7ca7d91841.png);
+  background-image: url(../../bf227b02511f48d9f0d8.png);
   background-repeat: no-repeat;
 }
 
@@ -135,14 +135,14 @@
 
 #SecondScreen_Title {
   left: 0;
-  background-image: url(../../37df8ef54f0c2e56478d.png);
+  background-image: url(../../3506d6d82ce73564fd67.png);
   background-repeat: no-repeat;
 }
 
 #SecondScreen_Game__map {
   height: 765px;
   width: 857px;
-  background-image: url(../../b0f7aef1178db0453003.png);
+  background-image: url(../../015ff9c04c5c3937f6bd.png);
   background-size: contain;
 }
 
@@ -194,7 +194,7 @@
 .Geomark, .SecondScreen_card__rightMark, .SecondScreen_card__badMark {
   width: 36px;
   height: 50px;
-  background-image: url(../../7772e4e47452b350dac8.png);
+  background-image: url(../../3eac34c2fae033cb0073.png);
   background-size: contain;
   background-repeat: no-repeat;
   margin-top: -50px;
@@ -204,12 +204,12 @@
 }
 
 .SecondScreen_card__rightMark {
-  background-image: url(../../75b1ee61bccaf2ae62b3.png);
+  background-image: url(../../148abc15359ad70ee8b3.png);
   z-index: 1;
 }
 
 .SecondScreen_card__badMark {
-  background-image: url(../../a9089bf57cb11f79d5ea.png);
+  background-image: url(../../274fd2578dd6dda5b623.png);
   z-index: 1;
 }
 
@@ -229,10 +229,10 @@
 }
 
 .SecondScreen_Result__imggood {
-  background-image: url(../../1098c79808207f12281f.png);
+  background-image: url(../../69be5ab62f94921d4908.png);
 }
 .SecondScreen_Result__imgbad {
-  background-image: url(../../65e7014bbffe9f0e6340.png);
+  background-image: url(../../0f531fa9e5f11677b79f.png);
 }
 
 #ThirdScreen_Title, #ThirdScreen_Game, #ThirdScreen_Results {
@@ -244,7 +244,7 @@
 
 #ThirdScreen_Title {
   left: 0;
-  background-image: url(../../b5e6cc6a5c54f4a788ee.png);
+  background-image: url(../../08186eb09f1b98135c09.png);
   background-repeat: no-repeat;
 }
 
@@ -293,11 +293,11 @@
 
 @font-face {
   font-family: "Lobster";
-  src: url(../../03c38496322925fec242.ttf);
+  src: url(../../d4e8786c99e2791a0350.ttf);
 }
 @font-face {
   font-family: "Pacifico";
-  src: url(../../c0d735fc04154e03a691.ttf);
+  src: url(../../5fdd48dcf65a2b33bd7a.ttf);
 }
 * {
   font-family: "Pacifico";
@@ -327,7 +327,7 @@
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
-  background-image: url(../../5c156a0d4f53d8609bed.png);
+  background-image: url(../../../dist/assets/images/5c156a0d4f53d8609bed1749bb3dc276.png);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
