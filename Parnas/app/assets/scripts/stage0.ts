@@ -118,3 +118,17 @@ const showResult = () => {
         stage0ResultScreenImg.classList.add('FinalScreen_Result__imgBad');
     }
 }
+
+const TitleScreen__sky: HTMLElement = document.getElementById('TitleScreen__sky');
+
+
+let path: number = 1;
+const shakeSky = () => {
+    setTimeout(()=>{
+        TitleScreen__sky.style.left = (path === 1? '500px': '800px');
+        path === 1 ? path = -1 : path = 1;
+        shakeSky();
+    },12000)
+};
+
+shakeSky();
