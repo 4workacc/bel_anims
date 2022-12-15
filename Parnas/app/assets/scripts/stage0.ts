@@ -30,7 +30,6 @@ const stage0BookPanel: HTMLElement = document.getElementById('FirstScreen_Game__
 const stage0MainText: HTMLElement = document.getElementById('FirstScreen_Game__simptomP');
 const stage0ResultScreenText: HTMLElement = document.getElementById('FinalScreen_Result__text');
 //buttons 
-
 const stage0StartButton: HTMLElement = document.getElementById('FirstScreen_Title__but');
 //imgs
 const stage0ResultScreenImg: HTMLElement = document.getElementById('FinalScreen_Result__img');
@@ -108,6 +107,7 @@ const setShot = (userSelectedBook: string) => {
 }
 
 const showResult = () => {
+    stage0ResultScreen.appendChild(stage0ProgressBar);
     let stage0Score: number = rightAnswersCount/stage0TaskCount;
     if ( stage0Score > 0.7 ) {
         stage0ResultScreenText.innerHTML = 'Выдатна '+stage0Score;
@@ -118,3 +118,17 @@ const showResult = () => {
         stage0ResultScreenImg.classList.add('FinalScreen_Result__imgBad');
     }
 }
+
+const TitleScreen__sky: HTMLElement = document.getElementById('TitleScreen__sky');
+
+
+let path: number = 1;
+const shakeSky = () => {
+    setTimeout(()=>{
+        TitleScreen__sky.style.left = (path === 1? '500px': '800px');
+        path === 1 ? path = -1 : path = 1;
+        shakeSky();
+    },12000)
+};
+
+shakeSky();

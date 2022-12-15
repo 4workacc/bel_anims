@@ -134,3 +134,14 @@ $screenHeight: 750px;
     background-image: url(../../assets/images/global/back22.png);
     background-repeat: no-repeat;
 }
+#TitleScreen__sky{
+    width: 200px;
+    height: 60px;
+    border: 1px solid red;
+
+    position: absolute;
+    left: 600px;
+    top: 300px;
+
+    transition: 20s;
+}
