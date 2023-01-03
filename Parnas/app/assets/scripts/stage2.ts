@@ -14,6 +14,9 @@ const stage2GameTitle: HTMLElement = document.getElementById('ThirdScreen_Game__
 const stage2GameFIOPanel: HTMLElement = document.getElementById('ThirdScreen_Game__fios');
 
 const stage2GameResultPanel: HTMLElement = document.getElementById('ThirdScreen_Game__results');
+const stage2GameResultImg: HTMLElement = document.getElementById('ThirdScreen_Result__img');
+
+const stage2GameResultText: HTMLElement = document.getElementById('ThirdScreen_Result__title');
 
 // ####################################
 
@@ -88,6 +91,15 @@ const stage2FIOClickHandler = ( fio: string) => {
     else {
         stage2GameScreen.style.left = '-101%';
         stage2ResultScreen.style.left = '0';
+       
+        if (stage2RightAnswerCount > 2 ) {
+            stage2GameResultText.innerHTML =  'НяДрэнна';
+            stage2GameResultImg.classList.add('ThirdScreen_Result__imggood');
+        }
+        else {
+            stage2GameResultText.innerHTML =  'Дрэнна';
+            stage2GameResultImg.classList.add('ThirdScreen_Result__imgbad');
+        }
     }
     
 }

@@ -10,21 +10,25 @@ $screenHeight: 750px;
     font-family: 'Lobster';
     src: url(../fonts/Lobster-Regular.ttf);
 }
+
 @font-face {
     font-family: 'Pacifico';
     src: url(../fonts/Pacifico-Regular.ttf);
 }
+
 * {
     font-family: 'Pacifico';
 }
+
 .Screen {
     width: $screenWidth;
     height: $screenHeight;
     position: absolute;
 
-    left: 1024px;       
+    left: 1024px;
 }
-#MainScreen {   
+
+#MainScreen {
     width: 1024px;
     height: 768px;
     position: absolute;
@@ -37,6 +41,7 @@ $screenHeight: 750px;
 
     overflow: hidden;
 }
+
 #TitleScreen {
     left: 0px;
     display: flex;
@@ -51,9 +56,32 @@ $screenHeight: 750px;
 
 }
 
-#StartBut, #FinalScreen_Result__but, #SecondScreen_Result__but, #SecondScreen_Title__but, #ThirdScreen_Title__but {
+#StartBut,
+#FinalScreen_Result__but,
+#SecondScreen_Result__but,
+#SecondScreen_Title__but,
+#ThirdScreen_Title__but,
+#FirstScreen_Title__but,
+#ThirdScreen_Result__but {
     position: absolute;
-    width: 100px;
-    left: 48%;
-    top: 95%;
+    width: 200px;
+    left: 50%;
+    margin-left: -100px;
+    top: 90%;
+    font-size: 30px;
+}
+
+#FirstScreen_Title__title, #SecondScreen_Title__title, #ThirdScreen_Title__title {
+    top: 30%;
+
+    width: 100%;
+    text-align: center;
+    font-size: 40px;
+}
+#FinalScreen_Result__text, #SecondScreen_Result__title, #ThirdScreen_Result__title {
+    top: 30%;
+
+    width: 100%;
+    text-align: center;
+    font-size: 40px;
 }

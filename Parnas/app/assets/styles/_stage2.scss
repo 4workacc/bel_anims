@@ -55,3 +55,22 @@ $screenHeight: 750px;
     width: 100%;
     text-align: center;
 }
+
+#ThirdScreen_Result__img {
+    width: 369px;
+    height: 711px;
+    position: absolute;
+    left: 0;
+    top: 150px;
+    background-size: contain;
+    background-repeat: no-repeat;    
+    
+}
+.ThirdScreen_Result__img {
+    &bad {
+        background-image: url(../../assets/images/stage2/imgs\ -\ 0011.png); 
+    }
+    &good {
+        background-image: url(../../assets/images/stage2/imgs\ -\ 0009.png); 
+    }
+}
