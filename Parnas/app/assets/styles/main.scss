@@ -50,3 +50,10 @@ $screenHeight: 750px;
     background-position: center;
 
 }
+
+#StartBut, #FinalScreen_Result__but, #SecondScreen_Result__but, #SecondScreen_Title__but, #ThirdScreen_Title__but {
+    position: absolute;
+    width: 100px;
+    left: 48%;
+    top: 95%;
+}
