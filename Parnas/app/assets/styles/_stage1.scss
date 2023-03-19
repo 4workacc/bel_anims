@@ -1,0 +1,122 @@
+
+#SecondScreen_Title, #SecondScreen_Game, #SecondScreen_Result {
+    position: absolute;
+    width: $screenWidth;
+    height: $screenHeight;
+
+    left: 101%;
+}
+
+#SecondScreen_Title {
+    left: 0;
+
+    background-image: url(../../assets/images/global/back32.png);
+    background-repeat: no-repeat;
+}
+#SecondScreen_Game{
+
+    &__map {
+        height: 765px;
+        width: 857px;
+
+        background-image: url(../../assets/images/stage1/map.png);        
+        background-size: contain;
+    }
+}
+#SecondScreen_Game__card {
+    display: none;
+    opacity: 0;   
+    width: 600px;
+    height: 450px;
+    background-color: white;
+    left: 101%;
+
+    position: absolute;    
+    top: 50%;
+
+    margin-left: -340px;
+    margin-top: -250px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    z-index: 20;
+}
+
+#SecondScreen_card__authors {
+    width: 600px;
+    height: 250px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.SecondScreen_card__author {
+    width: 100px;
+    height: 175px;
+    border: 1px solid black;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    &:hover {
+        border: 2px solid lightcoral;
+    }
+}
+#SecondScreen_Card__title {
+    font-size: 30px;
+    width: 100%;
+    text-align: center;
+    padding: 0;
+}
+.Geomark, .SecondScreen_card__rightMark, .SecondScreen_card__badMark {
+    width: 36px;
+    height: 50px;
+    background-image: url(../../assets/images/stage1/geomark_neutral.png);
+
+    background-size: contain;
+    background-repeat: no-repeat;
+
+    margin-top: -50px;
+    margin-left: -18px;
+
+    position: absolute;
+    z-index: 10;
+}
+.SecondScreen_card__rightMark {
+    background-image: url(../../assets/images/stage1/markGood.png);
+    z-index: 1;
+ 
+}
+.SecondScreen_card__badMark {
+    background-image: url(../../assets/images/stage1/markBad.png);
+    z-index: 1;
+   
+}
+
+.SecondScreen_Result {
+    display: flex;
+    flex-direction: column;
+}
+
+#SecondScreen_Result__img {
+    width: 389px;
+    height: 650px;
+    position: absolute;
+    left: 0;
+    top: 150px;
+    background-size: contain;
+    background-repeat: no-repeat;    
+}
+
+.SecondScreen_Result__img {
+    &good {
+        background-image: url(../../assets/images/stage1/1_01.png);        
+    }
+    &bad {
+        background-image: url(../../assets/images/stage1/1_03.png);        
+    }
+}
