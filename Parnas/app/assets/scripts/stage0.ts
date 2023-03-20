@@ -109,26 +109,18 @@ const setShot = (userSelectedBook: string) => {
 const showResult = () => {
     stage0ResultScreen.appendChild(stage0ProgressBar);
     let stage0Score: number = rightAnswersCount/stage0TaskCount;
-    if ( stage0Score > 0.7 ) {
+    if ( stage0Score > 0.9 ) {
         stage0ResultScreenText.innerHTML = 'Малайчынка! Падымайцеся вышэй. '+stage0Score;
         stage0ResultScreenImg.classList.add('FinalScreen_Result__imgGood');
     }
-    else {
+    if( stage0Score < 0.9 && stage0Score >=0.7 ) {
+        stage0ResultScreenText.innerHTML = 'Добра, але трэба перачытаць некаторыя твора.'+stage0Score ;
+        stage0ResultScreenImg.classList.add('FinalScreen_Result__imgBad');
+    } 
+    if ( stage0Score < 0.7 ) {
         stage0ResultScreenText.innerHTML = 'Не атрымалася. Паспрабуйце яшчэ раз. '+stage0Score ;
         stage0ResultScreenImg.classList.add('FinalScreen_Result__imgBad');
+        document.getElementById('FinalScreen_Result__but').style.display = 'none';
     }
 }
 
-const TitleScreen__sky: HTMLElement = document.getElementById('TitleScreen__sky');
-
-
-let path: number = 1;
-const shakeSky = () => {
-    setTimeout(()=>{
-        TitleScreen__sky.style.left = (path === 1? '500px': '800px');
-        path === 1 ? path = -1 : path = 1;
-        shakeSky();
-    },12000)
-};
-
-shakeSky();
