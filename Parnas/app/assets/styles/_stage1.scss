@@ -12,6 +12,10 @@
 
     background-image: url(../../assets/images/global/back32.png);
     background-repeat: no-repeat;
+    & h2 {
+        width: 60%;
+        margin-left: 30%;
+    }
 }
 #SecondScreen_Game{
 

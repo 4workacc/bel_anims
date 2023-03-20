@@ -110,11 +110,11 @@ const showResult = () => {
     stage0ResultScreen.appendChild(stage0ProgressBar);
     let stage0Score: number = rightAnswersCount/stage0TaskCount;
     if ( stage0Score > 0.7 ) {
-        stage0ResultScreenText.innerHTML = 'Выдатна '+stage0Score;
+        stage0ResultScreenText.innerHTML = 'Малайчынка! Падымайцеся вышэй. '+stage0Score;
         stage0ResultScreenImg.classList.add('FinalScreen_Result__imgGood');
     }
     else {
-        stage0ResultScreenText.innerHTML = 'Дрэнна '+stage0Score ;
+        stage0ResultScreenText.innerHTML = 'Не атрымалася. Паспрабуйце яшчэ раз. '+stage0Score ;
         stage0ResultScreenImg.classList.add('FinalScreen_Result__imgBad');
     }
 }

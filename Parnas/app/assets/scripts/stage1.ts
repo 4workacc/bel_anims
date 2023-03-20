@@ -24,11 +24,11 @@ const stage1ShowResultScreen = () => {
     let stage1ResultTitle: HTMLElement = document.getElementById('SecondScreen_Result__title');
     if (stage1RightCount > 3) {
         stage1ResultImg.classList.add('SecondScreen_Result__imggood');
-        stage1ResultTitle.innerHTML = 'Добра';
+        stage1ResultTitle.innerHTML = 'Цудоўна! Хвалю Вас! Пад’ём працягваецца.';
     }
     else {
         stage1ResultImg.classList.add('SecondScreen_Result__imgbad');
-        stage1ResultTitle.innerHTML = 'Дрэнна';
+        stage1ResultTitle.innerHTML = 'Нядрэнна, але паспрабуйце яшчэ раз.';
     }
     stage1ResultScreen.style.left = '0';
 }

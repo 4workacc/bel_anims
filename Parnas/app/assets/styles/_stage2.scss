@@ -13,6 +13,11 @@ $screenHeight: 750px;
 
     background-image: url(../images/global/back42.png);
     background-repeat: no-repeat;
+    & h2 {
+        width: 65%;
+        margin-left: 30%;
+        text-align: right;
+    }
 }
 #ThirdScreen_Game__results {
     width: 1024px;

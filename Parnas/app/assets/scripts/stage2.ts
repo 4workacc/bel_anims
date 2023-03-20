@@ -93,11 +93,11 @@ const stage2FIOClickHandler = ( fio: string) => {
         stage2ResultScreen.style.left = '0';
        
         if (stage2RightAnswerCount > 2 ) {
-            stage2GameResultText.innerHTML =  'НяДрэнна';
+            stage2GameResultText.innerHTML =  'Неверагодна! Вы трапілі на Парнас!!! Вы геній!!!';
             stage2GameResultImg.classList.add('ThirdScreen_Result__imggood');
         }
         else {
-            stage2GameResultText.innerHTML =  'Дрэнна';
+            stage2GameResultText.innerHTML =  'Паўтарыце спробу яшчэ раз.';
             stage2GameResultImg.classList.add('ThirdScreen_Result__imgbad');
         }
     }
