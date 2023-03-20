@@ -92,7 +92,7 @@ const stage2FIOClickHandler = ( fio: string) => {
         stage2GameScreen.style.left = '-101%';
         stage2ResultScreen.style.left = '0';
        
-        if (stage2RightAnswerCount > 2 ) {
+        if (stage2RightAnswerCount > 4 ) {
             stage2GameResultText.innerHTML =  'Неверагодна! Вы трапілі на Парнас!!! Вы геній!!!';
             stage2GameResultImg.classList.add('ThirdScreen_Result__imggood');
         }

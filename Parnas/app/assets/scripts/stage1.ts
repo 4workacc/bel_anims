@@ -22,13 +22,18 @@ const stage1ShowResultScreen = () => {
     stage1GameScreen.style.left = '-101%';
     let stage1ResultImg: HTMLElement = document.getElementById('SecondScreen_Result__img');
     let stage1ResultTitle: HTMLElement = document.getElementById('SecondScreen_Result__title');
-    if (stage1RightCount > 3) {
+    if (stage1RightCount = 5) {
         stage1ResultImg.classList.add('SecondScreen_Result__imggood');
         stage1ResultTitle.innerHTML = 'Цудоўна! Хвалю Вас! Пад’ём працягваецца.';
     }
-    else {
+    if (stage1RightCount >=4 && stage1RightCount <5) {
+        stage1ResultImg.classList.add('SecondScreen_Result__imggood');
+        stage1ResultTitle.innerHTML = 'Добра, але паўтарыце біяграфічныя звесткі пісьменнікаў.';
+    }
+    if (stage1RightCount >=4 && stage1RightCount <4) {
         stage1ResultImg.classList.add('SecondScreen_Result__imgbad');
         stage1ResultTitle.innerHTML = 'Нядрэнна, але паспрабуйце яшчэ раз.';
+        document.getElementById('SecondScreen_Result__but').style.display = "none";
     }
     stage1ResultScreen.style.left = '0';
 }
