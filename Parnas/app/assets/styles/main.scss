@@ -62,7 +62,10 @@ $screenHeight: 750px;
 #SecondScreen_Title__but,
 #ThirdScreen_Title__but,
 #FirstScreen_Title__but,
-#ThirdScreen_Result__but {
+#ThirdScreen_Result__but,
+#FinalScreen_Result__restartBut,
+#SecondScreen_Result__restartBut,
+#ThirdScreen_Result__restartBut {
     position: absolute;
     width: 200px;
     left: 50%;

@@ -108,3 +108,7 @@ $screenHeight: 750px;
     background-image: url(../../assets/images/global/back22.png);
     background-repeat: no-repeat;
 }
+.FinalScreen_Result__restartBut {
+    display: none;
+    z-index: 10;
+}

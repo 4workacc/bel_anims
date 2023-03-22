@@ -36,7 +36,9 @@ const stage0ResultScreenImg: HTMLElement = document.getElementById('FinalScreen_
 
 
 
-stage0StartButton.onclick = () => {     
+stage0StartButton.onclick = () => {
+    document.getElementById('FinalScreen_Result__restartBut').style.display = 'none';
+    document.getElementById('FinalScreen_Result__but').style.display = 'block';
     generateShots();
     generateBooks();
     stage0MainText.innerHTML = simptomsArr[curIndex];
@@ -44,24 +46,24 @@ stage0StartButton.onclick = () => {
     stage0GameScreen.style.left = '0';
 }
 
-const generateShots = () => {   
-    for ( let i: number = 0; i<stage0TaskCount; i++ ) {
-        let shot:HTMLElement = document.createElement('div');
+const generateShots = () => {
+    for (let i: number = 0; i < stage0TaskCount; i++) {
+        let shot: HTMLElement = document.createElement('div');
         shot.classList.add('FirstScreen_Game__shot');
-        shot.id = 'FirstScreen_Game__shot'+i;
+        shot.id = 'FirstScreen_Game__shot' + i;
         stage0ProgressBar.appendChild(shot);
     }
 }
 
 const generateBooks = () => {
     curRightBook = booksArr[curIndex];
-    let curBooksArr: string[] = ['','','','',''];
-    curBooksArr[Math.floor(Math.random()*5)] = booksArr[curIndex];
-    for ( let i: number = 0; i<5; i++) {
-        if ( curBooksArr[i] === '') {
-            while ( curBooksArr[i] === '') {
-                let randomBook: string = booksArr[Math.floor(Math.random()*booksArr.length)];
-                if ( curBooksArr.indexOf(randomBook) === -1 ) {
+    let curBooksArr: string[] = ['', '', '', '', ''];
+    curBooksArr[Math.floor(Math.random() * 5)] = booksArr[curIndex];
+    for (let i: number = 0; i < 5; i++) {
+        if (curBooksArr[i] === '') {
+            while (curBooksArr[i] === '') {
+                let randomBook: string = booksArr[Math.floor(Math.random() * booksArr.length)];
+                if (curBooksArr.indexOf(randomBook) === -1) {
                     curBooksArr[i] = randomBook;
                 }
             }
@@ -69,13 +71,13 @@ const generateBooks = () => {
     }
     while (stage0BookPanel.firstChild) {
         stage0BookPanel.removeChild(stage0BookPanel.lastChild);
-    }    
-    for ( let i: number = 0; i<5; i++ ) {
-        let book:HTMLElement = document.createElement('p');
+    }
+    for (let i: number = 0; i < 5; i++) {
+        let book: HTMLElement = document.createElement('p');
         book.classList.add('FirstScreen_Game__book');
-        book.id = 'FirstScreen_Game__book'+i;
+        book.id = 'FirstScreen_Game__book' + i;
         book.innerHTML = curBooksArr[i];
-        book.onclick = () => {            
+        book.onclick = () => {
             setShot(curBooksArr[i]);
             newStep();
         }
@@ -83,9 +85,9 @@ const generateBooks = () => {
     }
 }
 
-const newStep = () => {    
+const newStep = () => {
     curIndex += 1;
-    if ( curIndex < stage0TaskCount ) {
+    if (curIndex < stage0TaskCount) {
         stage0MainText.innerHTML = simptomsArr[curIndex];
         generateBooks();
     }
@@ -93,34 +95,56 @@ const newStep = () => {
         showResult();
         stage0GameScreen.style.left = '-101%';
         stage0ResultScreen.style.left = '0'
-    }   
+    }
 }
 
 const setShot = (userSelectedBook: string) => {
-    if ( userSelectedBook === curRightBook ) {
+    if (userSelectedBook === curRightBook) {
         rightAnswersCount += 1;
-        document.getElementById('FirstScreen_Game__shot'+curIndex).style.backgroundColor = 'green';
+        document.getElementById('FirstScreen_Game__shot' + curIndex).style.backgroundColor = 'green';
     }
     else {
-        document.getElementById('FirstScreen_Game__shot'+curIndex).style.backgroundColor = 'red';
+        document.getElementById('FirstScreen_Game__shot' + curIndex).style.backgroundColor = 'red';
     }
 }
 
 const showResult = () => {
     stage0ResultScreen.appendChild(stage0ProgressBar);
-    let stage0Score: number = rightAnswersCount/stage0TaskCount;
-    if ( stage0Score > 0.9 ) {
-        stage0ResultScreenText.innerHTML = 'Малайчынка! Падымайцеся вышэй. '+stage0Score;
+    let stage0Score: number = rightAnswersCount / stage0TaskCount;
+    if (stage0Score > 0.9) {
+        stage0ResultScreenText.innerHTML = 'Малайчынка! Падымайцеся вышэй. ' + stage0Score;
         stage0ResultScreenImg.classList.add('FinalScreen_Result__imgGood');
     }
-    if( stage0Score < 0.9 && stage0Score >=0.7 ) {
-        stage0ResultScreenText.innerHTML = 'Добра, але трэба перачытаць некаторыя твора.'+stage0Score ;
+    if (stage0Score < 0.9 && stage0Score >= 0.7) {
+        stage0ResultScreenText.innerHTML = 'Добра, але трэба перачытаць некаторыя твора.' + stage0Score;
         stage0ResultScreenImg.classList.add('FinalScreen_Result__imgBad');
-    } 
-    if ( stage0Score < 0.7 ) {
-        stage0ResultScreenText.innerHTML = 'Не атрымалася. Паспрабуйце яшчэ раз. '+stage0Score ;
+    }
+    if (stage0Score < 0.7) {
+        stage0ResultScreenText.innerHTML = 'Не атрымалася. Паспрабуйце яшчэ раз. ' + stage0Score;
         stage0ResultScreenImg.classList.add('FinalScreen_Result__imgBad');
         document.getElementById('FinalScreen_Result__but').style.display = 'none';
+        document.getElementById('FinalScreen_Result__restartBut').style.display = 'block';
     }
 }
 
+document.getElementById('FinalScreen_Result__restartBut').onclick = () => {
+    alert(1);
+    curIndex = 0;
+    simptomsArr = [];
+    booksArr = [];
+    curRightBook = '';
+    rightAnswersCount = 0;
+
+    document.getElementById('FinalScreen_Result__restartBut').style.display = 'none';
+    document.getElementById('FinalScreen_Result__but').style.display = 'block';
+
+    while (stage0ProgressBar.firstChild) {
+        stage0ProgressBar.removeChild(stage0ProgressBar.lastChild);
+    }
+
+    // generateShots();
+    // generateBooks();
+    stage0MainText.innerHTML = simptomsArr[curIndex];
+    stage0TitleScreen.style.left = '-1100px';
+    stage0GameScreen.style.left = '0';
+}
