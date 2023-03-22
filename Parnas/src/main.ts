@@ -1,4 +1,4 @@
-import './style.css';
+import './style.scss';
 
 let i: number = 1;
 
