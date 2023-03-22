@@ -1,3 +1,16 @@
+@font-face {
+  font-family: 'Lobster-Regular';
+  src: url('./fonts/Lobster-Regular.ttf') format('ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Pacifico-Regular';
+  src: url('./fonts/Pacifico-Regular.ttf') format('ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
 #app{
   width: 1000px;
   height: 730px;
@@ -7,5 +20,5 @@
   top: 50%;
 
   margin-left: -500px;
-  margin-top: -365px;
+  margin-top: -365px; 
 }

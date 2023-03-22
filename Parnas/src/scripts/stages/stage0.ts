@@ -47,7 +47,3 @@ const stage0_setCurrentSimptoms = () => {
 const stage0_setCurrentBooks = () => {
     console.log(stage0_curQuestionIndex, stage0_rightAnsers);
 }
-
-document.getElementById('q0')!.onclick = () => {
-    stage0_Start();
-}

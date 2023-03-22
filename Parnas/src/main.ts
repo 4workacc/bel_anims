@@ -5,18 +5,16 @@ import './scripts/stages/stage2';
 
 let globalScore: number = 0;
 
-export const IncGlobalScore = (count: number ) => {
+export const IncGlobalScore = (count: number) => {
     globalScore += count;
-    console.log( globalScore );
+    console.log(globalScore);
 }
 
-export const showStage0 = () =>{
+export const showStage0 = () => {
     document.getElementById("TitleScreen")!.style.display = "none";
     document.getElementById("Stage0_Screen")!.style.display = "block";
 }
 
-document.onload = () => {
-    document.getElementById("GameStartButton")!.onclick = () =>{
-        showStage0();
-    } ;
+document.getElementById('GameStartButton')!.onclick = () => {
+    showStage0();
 }
