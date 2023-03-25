@@ -1,28 +1,33 @@
 $screenWidth: 1024px;
 $screenHeight: 750px;
-#FirstScreen_Title, #FirstScreen_Game, #FirstScreen_Result {
+
+#FirstScreen_Title,
+#FirstScreen_Game,
+#FirstScreen_Result {
     position: absolute;
     width: $screenWidth;
     height: $screenHeight;
 
     left: -101%;
 }
+
 #FirstScreen {
     overflow: hidden;
 }
+
 #FirstScreen_Title {
     left: 0;
 }
 
-#FirstScreen_Title {   
+#FirstScreen_Title {
     background-image: url(../../assets/images/stage0/back2023.png);
     background-repeat: no-repeat;
-    
+
     & h2 {
-        width: 60%;
-        margin-left: 30%;
+        width: 100%;              
     }
 }
+
 #FirstScreen_Game {
     width: $screenWidth;
     height: $screenHeight;
@@ -40,27 +45,31 @@ $screenHeight: 750px;
         justify-content: space-between;
     }
 }
+
 .FirstScreen_Game__shot {
     width: 45px;
     height: 45px;
     border: 1px solid black;
     border-radius: 20px;
 }
-#FirstScreen_Game__main{
+
+#FirstScreen_Game__main {
     padding: 0;
-    margin: 0;  
+    margin: 0;
     height: 659px;
-    width: 100%;  
-    
+    width: 100%;
+
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
 }
-#FirstScreen_Game__simptom {  
-    height: 80px;    
-    width: 100%;  
+
+#FirstScreen_Game__simptom {
+    height: 80px;
+    width: 100%;
 }
+
 #FirstScreen_Game__simptomP {
     font-size: 37px;
     text-align: center;
@@ -68,47 +77,60 @@ $screenHeight: 750px;
     margin-top: 20px;
     font-weight: bold;
 }
-#FirstScreen_Game__booksList{
+
+#FirstScreen_Game__booksList {
     width: 100%;
     height: 500px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;    
+    justify-content: space-between;
 }
+
 .FirstScreen_Game__book {
     font-size: 30px;
     text-align: center;
     padding: 0;
     margin: 0;
+
     &:hover {
         font-weight: bold;
         text-decoration: underline;
     }
 }
+
 #FinalScreen_Result__img {
     position: absolute;
 
-    left: 0;
+    left: 380px;
     top: 200px;
 
     height: 600px;
     width: 480px;
-        
+
     background-size: contain;
     background-repeat: no-repeat;
 }
-.FinalScreen_Result__imgGood{
+
+.FinalScreen_Result__imgGood {
     background-image: url(../../assets/images/stage0/0_02.png);
+    left: 0;
 }
-.FinalScreen_Result__imgBad{
-    background-image: url(../../assets/images/stage0/0_03.png);
+
+.FinalScreen_Result__imgBad {
+    background-image: url(../../assets/images/stage0/0_03.png);    
 }
+
 #FirstScreen_Result {
-    background-image: url(../../assets/images/global/back22.png);
+    background-image: url(../../assets/images/stage0/back0_final.png);
     background-repeat: no-repeat;
 }
+
 .FinalScreen_Result__restartBut {
     display: none;
     z-index: 10;
+}
+
+#FinalScreen_Result__text{
+    background-color: rgba(123, 255, 255, 0.5);
 }

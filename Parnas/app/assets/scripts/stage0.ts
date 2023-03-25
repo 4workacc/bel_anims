@@ -34,16 +34,26 @@ const stage0StartButton: HTMLElement = document.getElementById('FirstScreen_Titl
 //imgs
 const stage0ResultScreenImg: HTMLElement = document.getElementById('FinalScreen_Result__img');
 
-
-
-stage0StartButton.onclick = () => {
-    document.getElementById('FinalScreen_Result__restartBut').style.display = 'none';
-    document.getElementById('FinalScreen_Result__but').style.display = 'block';
+let startStage0 = () => {    
+    curIndex = 0;
+    simptomsArr = [];
+    booksArr = [];
+    curRightBook = '';
+    rightAnswersCount = 0;
+    stage0ResultScreen.style.display = "none";
+    stage0TitleScreen.style.display = "block";
+    while (stage0ProgressBar.firstChild) {
+        stage0ProgressBar.removeChild(stage0ProgressBar.lastChild);
+    }
     generateShots();
     generateBooks();
     stage0MainText.innerHTML = simptomsArr[curIndex];
     stage0TitleScreen.style.left = '-1100px';
     stage0GameScreen.style.left = '0';
+}
+
+stage0StartButton.onclick = () => {
+   startStage0();
 }
 
 const generateShots = () => {
@@ -127,24 +137,3 @@ const showResult = () => {
     }
 }
 
-document.getElementById('FinalScreen_Result__restartBut').onclick = () => {
-    alert(1);
-    curIndex = 0;
-    simptomsArr = [];
-    booksArr = [];
-    curRightBook = '';
-    rightAnswersCount = 0;
-
-    document.getElementById('FinalScreen_Result__restartBut').style.display = 'none';
-    document.getElementById('FinalScreen_Result__but').style.display = 'block';
-
-    while (stage0ProgressBar.firstChild) {
-        stage0ProgressBar.removeChild(stage0ProgressBar.lastChild);
-    }
-
-    // generateShots();
-    // generateBooks();
-    stage0MainText.innerHTML = simptomsArr[curIndex];
-    stage0TitleScreen.style.left = '-1100px';
-    stage0GameScreen.style.left = '0';
-}
