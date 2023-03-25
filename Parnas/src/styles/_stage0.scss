@@ -1,6 +1,24 @@
 #Stage0_Screen {
     background-image: url("../imgs/stage0/back2023.png");
 }
+
+#Stage0_TitleBack{   
+    width: 700px;
+    height: 700px;
+
+    margin-left: 320px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-image: url(../imgs/stage0/text-back.png);
+    background-size: contain;
+}
+
 #Stage0_Title{
-    width: 80%;
+    width: 40%;   
+    font-family: "Lobster";
+    text-align: center;
+    font-size: 22px;   
 }
