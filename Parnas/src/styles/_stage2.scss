@@ -1,0 +1,17 @@
+#Stage2_TitleScreen{
+    width: 100%;
+    height: 100%;
+
+    background-image: url(../imgs/stage2/BACK_2023.png);
+}
+#Stage2_Title{
+    position: absolute;
+    width: 440px;
+    height: 100px;
+    left: 430px;
+    top:378px;
+    font-size: 23px;    
+    font-family: "Lobster";
+    padding-left: 30px;
+    text-align: center;
+}

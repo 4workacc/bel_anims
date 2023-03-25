@@ -1,3 +1,5 @@
+import "../../styles/_stage2.scss";
+
 let stage2_score:number = 0;
 
 let stage2_Title_Screen: HTMLElement = document.getElementById("Stage2_TitleScreen")!;

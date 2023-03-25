@@ -9,7 +9,15 @@
   margin-left: -500px;
   margin-top: -365px; 
 }
-#Stage0_Screen, #Stage1_Screen, #Stage2_Screen, #Final_Screen, #Stage1_Game, #Stage1_Result, #Stage2_Game, #Stage2_Result {
+#Stage0_Screen, 
+#Stage1_Screen, 
+#Stage2_Screen, 
+#Final_Screen, 
+#Stage1_Game, 
+#Stage1_Result, 
+#Stage2_Game,
+#Stage2_Result
+{
   display: none;
   width: 1000px;
   height: 750px;
