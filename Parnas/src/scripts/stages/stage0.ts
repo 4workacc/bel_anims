@@ -4,6 +4,8 @@ import '../tasks/task0'
 import { stage0books } from "../tasks/task0";
 import { stage0test } from "../tasks/task0";
 
+import "../../styles/_stage0.scss";
+
 let stage0_score:number = 0;
 let stage0_questionCount:number = 10;
 // let stage0_errorsAllowed: number = 2;
@@ -14,6 +16,9 @@ let stage0_curQuestionIndex: number;
 let stage0_simptomsArr: string[] = [];
 let stage0_booksArr: string[] = [];
 
+let stage0Screen: HTMLElement = document.getElementById("Stage0_Screen")!;
+let titleScreen: HTMLElement = document.getElementById("TitleScreen")!;
+
 export const stage0_Start = () => {    
     stage0_rightAnsers = 0;
     stage0_curQuestionIndex = 0;
@@ -21,6 +26,9 @@ export const stage0_Start = () => {
     stage0_setCurrentSimptoms();
     stage0_setCurrentBooks();
     console.log(stage0_simptomsArr);
+
+    titleScreen.style.display = "none";
+    stage0Screen.style.display = "block";
 }
 
 export const stage0_End = () => {
