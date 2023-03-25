@@ -16,20 +16,27 @@ let stage0_curQuestionIndex: number;
 let stage0_simptomsArr: string[] = [];
 let stage0_booksArr: string[] = [];
 
-let stage0Screen: HTMLElement = document.getElementById("Stage0_Screen")!;
-let titleScreen: HTMLElement = document.getElementById("TitleScreen")!;
+let stage0Screen:HTMLElement = document.getElementById("Stage0_Screen")!;
+let stage0TitleScreen: HTMLElement = document.getElementById("Stage0_TitleScreen")!;
+let stage0TitleBut: HTMLElement = document.getElementById("Start0_Title_but")!;
+
+let stage0GameScreen: HTMLElement = document.getElementById("Stage0_Game")!;
+let stage0ResultScreen: HTMLElement = document.getElementById("Stage0_Result")!;
+
+let stage0ToResultsBut = document.getElementById("Stage0_Game_but");
 
 export const stage0_Start = () => {    
     stage0_rightAnsers = 0;
     stage0_curQuestionIndex = 0;
     stage0_generateGameArr();
     stage0_setCurrentSimptoms();
-    stage0_setCurrentBooks();
-    console.log(stage0_simptomsArr);
-
-    titleScreen.style.display = "none";
-    stage0Screen.style.display = "block";
+    stage0_setCurrentBooks();     
 }
+
+stage0TitleBut.onclick = () => {
+    stage0TitleScreen.style.display = "none";
+    stage0GameScreen.style.display = "block";
+};
 
 export const stage0_End = () => {
     IncGlobalScore( stage0_score );
@@ -54,4 +61,24 @@ const stage0_setCurrentSimptoms = () => {
 
 const stage0_setCurrentBooks = () => {
     console.log(stage0_curQuestionIndex, stage0_rightAnsers);
+}
+
+stage0ToResultsBut!.onclick = () => {
+    stage0GameScreen.style.display = "none";
+    stage0ResultScreen.style.display = "block";
+}
+
+let stage0ResturtBut = document.getElementById("Stage0_Result_restart");
+
+stage0ResturtBut!.onclick = () => {
+    stage0ResultScreen.style.display = "none";
+    stage0TitleScreen.style.display = "block";
+    stage0_Start();    
+}
+
+let stage1Screen: HTMLElement = document.getElementById("Stage1_Screen")!;
+let stage0NextButton = document.getElementById("Stage0_Result_next");
+stage0NextButton!.onclick = () => {
+    stage0Screen.style.display = "none";
+    stage1Screen.style.display = "block";
 }

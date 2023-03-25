@@ -10,11 +10,9 @@ export const IncGlobalScore = (count: number) => {
     console.log(globalScore);
 }
 
-export const showStage0 = () => {
-    document.getElementById("TitleScreen")!.style.display = "none";
-    document.getElementById("Stage0_Screen")!.style.display = "block";
-}
+let GameStartButton: HTMLElement = document.getElementById("GameStartButton")!;
 
-document.getElementById('GameStartButton')!.onclick = () => {
-    showStage0();
+GameStartButton.onclick = () => {
+    document.getElementById("TitleScreen")!.style.display = "none";   
+    document.getElementById("Stage0_Screen")!.style.display = "block";
 }

@@ -1,4 +1,4 @@
-#Stage0_Screen {
+#Stage0_TitleScreen {
     background-image: url("../imgs/stage0/back2023.png");
 }
 
@@ -11,7 +11,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
+   
     background-image: url(../imgs/stage0/text-back.png);
     background-size: contain;
 }
@@ -21,4 +21,7 @@
     font-family: "Lobster";
     text-align: center;
     font-size: 22px;   
+}
+#Stage0_Game, #Stage0_Result {
+    display: none;
 }
