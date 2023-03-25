@@ -80,5 +80,5 @@ let stage1Screen: HTMLElement = document.getElementById("Stage1_Screen")!;
 let stage0NextButton = document.getElementById("Stage0_Result_next");
 stage0NextButton!.onclick = () => {
     stage0Screen.style.display = "none";
-    stage1Screen.style.display = "block";
+    stage1Screen.style.display = "block";    
 }
