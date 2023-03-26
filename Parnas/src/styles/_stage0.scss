@@ -25,3 +25,44 @@
 #Stage0_Game, #Stage0_Result {
     display: none;
 }
+#Stage0_Game_ShotBar {
+    width: 100%;
+    height: 100px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+.Stage0_shotInactive {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    box-shadow: 0 0 1px 1px gray;
+}
+#Stage0_Simptoms {
+    width: 100%;
+    text-align: center;
+    font-family: "Lobster";
+    font-size:  45px;
+}
+#Stage0_BooksBar{
+    width: 800px;
+    margin-left: 100px;    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+.Stage0_Book {
+    font-family: "Lobster";
+    font-size: 30px;
+    text-align: center;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.Stage_ShotGood { background-color: #00FF00;}
+.Stage_ShotBad { background-color: #FF0000;}

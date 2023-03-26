@@ -10,13 +10,21 @@
   margin-top: -365px; 
 }
 #Stage0_Screen, 
+#Stage0_TitleScreen,
+#Stage0_Result,
+#Stage0_Game,
+
 #Stage1_Screen, 
-#Stage2_Screen, 
-#Final_Screen, 
+#Stage1_TitleScreen,
 #Stage1_Game, 
 #Stage1_Result, 
+
+#Stage2_Screen, 
+#Stage2_TitleScreen,
 #Stage2_Game,
-#Stage2_Result
+#Stage2_Result,
+
+#Final_Screen
 {
   display: none;
   width: 1000px;
