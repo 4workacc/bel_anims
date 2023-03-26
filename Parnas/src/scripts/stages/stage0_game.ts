@@ -1,7 +1,6 @@
 import { stage0books } from "../tasks/task0";
 import { stage0test } from "../tasks/task0";
 
-
 let stage0_questionCount: number = 10;
 
 let stage0_simptomsArr: string[] = [];
@@ -38,7 +37,7 @@ const stage0_generate5RandomBooks = (rightAnswer: string): string[] => {
 }
 // GUI
 let stage0_score: number = 0;
-let stage0_rightAnsers: number;
+let stage0_rightAnswers: number;
 let stage0_curQuestionIndex: number;
 
 const stage0_generageStots = () => {
@@ -51,7 +50,7 @@ const stage0_generageStots = () => {
 }
 
 const stage0_gameStart = () => {
-    stage0_rightAnsers = 0;
+    stage0_rightAnswers = 0;
     stage0_curQuestionIndex = 0;
     stage0_score = 0;
     stage0_simptomsArr = [];
@@ -61,13 +60,11 @@ const stage0_gameStart = () => {
 }
 
 stage0_gameStart();
-const stage0_clearBooks = () => {
-    while ( document.getElementById("stage_setTextValues")?.lastChild ) {
-        document.getElementById("stage_setTextValues")?.removeChild(document.getElementById("stage_setTextValues")?.firstChild)
-    }
-}
+
 const stage_setTextValues = () => {
-    stage0_clearBooks()
+    while ( document.getElementById("Stage0_BooksBar")!.firstChild ) {
+        document.getElementById("Stage0_BooksBar")?.removeChild(document.getElementById("Stage0_BooksBar")!.lastChild!)
+    }
     document.getElementById("Stage0_Simptoms")!.innerHTML = stage0_simptomsArr[stage0_curQuestionIndex];
     for (let i: number = 0; i < 5; i++) {        
         let book: HTMLParagraphElement = document.createElement("p");
@@ -79,16 +76,30 @@ const stage_setTextValues = () => {
     }
 }
 
+
+let stage0_ResultScreen: HTMLElement = document.getElementById("Stage0_Result")!;
 const stage0_shot = (isRight: boolean) =>{
     let curShot: HTMLElement | null = document.getElementById(`stage0_shot${stage0_curQuestionIndex}`);
     if (isRight) {
-        curShot?.classList.add("Stage_ShotGood")
+        curShot?.classList.add("Stage_ShotGood");
+        stage0_rightAnswers += 1;
     }
     else {
         curShot?.classList.add("Stage_ShotBad")
     };
-    stage0_curQuestionIndex += 1;
-    stage_setTextValues();
+    if ( stage0_curQuestionIndex < stage0_questionCount-1 ) {
+        stage0_curQuestionIndex += 1;
+        stage_setTextValues();
+    } else {        
+        if ( stage0_rightAnswers > 1 ) {
+            document.getElementById("Stage0_ResultGod")!.classList.add("Stage0_ResultGod_good")
+        } else {
+            document.getElementById("Stage0_ResultGod")!.classList.add("Stage0_ResultGod_bad")
+        }
+        stage0_ResultScreen!.style.display = "block";
+        document.getElementById("Stage0_Game")!.style.display = "none";
+    }
+    
 }
 
 stage_setTextValues();

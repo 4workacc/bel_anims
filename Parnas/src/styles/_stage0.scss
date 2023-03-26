@@ -66,3 +66,25 @@
 
 .Stage_ShotGood { background-color: #00FF00;}
 .Stage_ShotBad { background-color: #FF0000;}
+
+#Stage0_Result {
+    background-image: url(../imgs/stage0/back.png);
+}
+#Stage0_ResultGod{
+    position: absolute;
+    width: 600px;
+    height: 540px;
+
+    background-size: contain;
+    background-repeat: no-repeat;    
+}
+.Stage0_ResultGod_bad {
+    background-image: url(../imgs/stage0/0_bad.png);
+    left: 350px;
+    top: 250px;
+}
+.Stage0_ResultGod_good {
+    background-image: url(../imgs/stage0/0_good.png);
+    left: 85px;
+    top: 250px;
+}
