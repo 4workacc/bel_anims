@@ -1,4 +1,5 @@
 import "../../styles/_stage0.scss";
+import { stage0_gameStart } from "./stage0_game";
 // NAVIGATION
 let stage0Screen:HTMLElement = document.getElementById("Stage0_Screen")!;
 
@@ -13,6 +14,7 @@ stage0TitleBut.onclick = () => {
     stage0TitleScreen.style.display = "none";
     stage0GameScreen.style.display = "block";  
     stage0ResultScreen.style.display = "none";  
+    stage0_gameStart();
 };
 
 stage0ToResultsBut!.onclick = () => {
@@ -24,8 +26,7 @@ let stage0RestartBut = document.getElementById("Stage0_Result_restart");
 
 stage0RestartBut!.onclick = () => {
     stage0ResultScreen.style.display = "none";
-    stage0TitleScreen.style.display = "block";  
-    stage0ResultScreen.style.display = "none";      
+    stage0TitleScreen.style.display = "block";           
 }
 
 let stage1Screen: HTMLElement = document.getElementById("Stage1_Screen")!;

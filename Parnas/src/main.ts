@@ -17,4 +17,5 @@ GameStartButton.onclick = () => {
     document.getElementById("TitleScreen")!.style.display = "none";   
     document.getElementById("Stage0_Screen")!.style.display = "block";
     document.getElementById("Stage0_TitleScreen")!.style.display = "block";
+    document.getElementById("Stage0_Result")!.style.display = "none";
 }

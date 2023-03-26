@@ -49,22 +49,10 @@ const stage0_generageStots = () => {
     }
 }
 
-const stage0_gameStart = () => {
-    stage0_rightAnswers = 0;
-    stage0_curQuestionIndex = 0;
-    stage0_score = 0;
-    stage0_simptomsArr = [];
-    stage0_booksArr = [];
-    stage0_generateArrays();
-    stage0_generageStots();
-}
-
-stage0_gameStart();
-
 const stage_setTextValues = () => {
     while ( document.getElementById("Stage0_BooksBar")!.firstChild ) {
         document.getElementById("Stage0_BooksBar")?.removeChild(document.getElementById("Stage0_BooksBar")!.lastChild!)
-    }
+    }    
     document.getElementById("Stage0_Simptoms")!.innerHTML = stage0_simptomsArr[stage0_curQuestionIndex];
     for (let i: number = 0; i < 5; i++) {        
         let book: HTMLParagraphElement = document.createElement("p");
@@ -75,7 +63,6 @@ const stage_setTextValues = () => {
         document.getElementById("Stage0_BooksBar")?.appendChild(book);
     }
 }
-
 
 let stage0_ResultScreen: HTMLElement = document.getElementById("Stage0_Result")!;
 const stage0_shot = (isRight: boolean) =>{
@@ -91,10 +78,23 @@ const stage0_shot = (isRight: boolean) =>{
         stage0_curQuestionIndex += 1;
         stage_setTextValues();
     } else {        
-        if ( stage0_rightAnswers > 1 ) {
-            document.getElementById("Stage0_ResultGod")!.classList.add("Stage0_ResultGod_good")
-        } else {
+        if ( stage0_rightAnswers > 9 ) {
+            document.getElementById("Stage0_ResultGod")!.classList.add("Stage0_ResultGod_good");
+            document.getElementById("Stage0_ResultTitle")!.innerHTML = "Малайчынка! Падымайцеся вышэй.";
+            document.getElementById("Stage0_Result_restart")!.style.display = "none";
+            document.getElementById("Stage0_Result_next")!.style.display = "block";
+        } 
+        else if ( stage0_rightAnswers > 7 ) {
             document.getElementById("Stage0_ResultGod")!.classList.add("Stage0_ResultGod_bad")
+            document.getElementById("Stage0_ResultTitle")!.innerHTML = "Добра, але трэба перачытаць некаторыя творы.";
+            document.getElementById("Stage0_Result_restart")!.style.display = "none";
+            document.getElementById("Stage0_Result_next")!.style.display = "block";
+        }
+        else if ( stage0_rightAnswers <= 7 ) { 
+            document.getElementById("Stage0_ResultGod")!.classList.add("Stage0_ResultGod_bad")
+            document.getElementById("Stage0_ResultTitle")!.innerHTML = "Не атрымалася. Паспрабуйце яшчэ раз.";
+            document.getElementById("Stage0_Result_restart")!.style.display = "block";
+            document.getElementById("Stage0_Result_next")!.style.display = "none";
         }
         stage0_ResultScreen!.style.display = "block";
         document.getElementById("Stage0_Game")!.style.display = "none";
@@ -102,4 +102,21 @@ const stage0_shot = (isRight: boolean) =>{
     
 }
 
-stage_setTextValues();
+export const stage0_gameStart = () => {
+    stage0_rightAnswers = 0;
+    stage0_curQuestionIndex = 0;
+    stage0_score = 0;
+    stage0_simptomsArr = [];
+    stage0_booksArr = [];
+    stage0_ResultScreen.style.display = "none";
+    while ( document.getElementById("Stage0_Game_ShotBar")!.firstChild ) {
+        document.getElementById("Stage0_Game_ShotBar")?.removeChild(document.getElementById("Stage0_Game_ShotBar")!.lastChild!)
+    }
+    stage0_generateArrays();
+    stage0_generageStots();
+    stage_setTextValues();
+}
+
+
+
+

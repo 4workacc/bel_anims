@@ -69,6 +69,10 @@
 
 #Stage0_Result {
     background-image: url(../imgs/stage0/back.png);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
 }
 #Stage0_ResultGod{
     position: absolute;
@@ -87,4 +91,23 @@
     background-image: url(../imgs/stage0/0_good.png);
     left: 85px;
     top: 250px;
+}
+#Stage0_ResultTitle{
+    font-family: "Lobster";
+    margin-left: 25%;
+    width: 60%;
+    text-align: center;
+    position: absolute;
+    top: 15%;
+    font-size: 30px;
+    background-color: rgba($color: #25afd1, $alpha: 0.6); 
+}
+#Stage0_Result_restart {
+    display: none;
+}
+#Stage0_Result_next{
+    display: none;
+}
+#Stage0_Game_but{
+    display: none;
 }
