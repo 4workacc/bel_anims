@@ -1,7 +1,7 @@
 import './style.scss';
 import './scripts/stages/stage0_navigation';
 import './scripts/stages/stage0_game';
-import './scripts/stages/stage1';
+import './scripts/stages/stage1_navigation';
 import './scripts/stages/stage2';
 
 let globalScore: number = 0;
