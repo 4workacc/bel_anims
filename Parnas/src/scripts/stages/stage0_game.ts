@@ -77,7 +77,7 @@ const stage0_shot = (isRight: boolean) =>{
         stage0_curQuestionIndex += 1;
         stage_setTextValues();
     } else {        
-        if ( stage0_rightAnswers > 9 ) {
+        if ( stage0_rightAnswers === 10 ) {
             document.getElementById("Stage0_ResultGod")!.classList.add("Stage0_ResultGod_good");
             document.getElementById("Stage0_ResultTitle")!.innerHTML = "Малайчынка! Падымайцеся вышэй.";
             // document.getElementById("Stage0_Result_restart")!.style.display = "none";
@@ -97,7 +97,7 @@ const stage0_shot = (isRight: boolean) =>{
                 document.getElementById("Stage1_Screen")!.style.display = "block";
             }
         }
-        else if ( stage0_rightAnswers < 0 ) { 
+        else if ( stage0_rightAnswers < 7 ) { 
             document.getElementById("Stage0_ResultGod")!.classList.add("Stage0_ResultGod_bad")
             document.getElementById("Stage0_ResultTitle")!.innerHTML = "Не атрымалася. Паспрабуйце яшчэ раз.";
             // document.getElementById("Stage0_Result_restart")!.style.display = "block";

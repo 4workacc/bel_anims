@@ -104,7 +104,7 @@ for (let i = 0; i < 5; i++) {
             document.getElementById("Stage1_Game")!.style.display = "none";
            
             document.getElementById("Stage1_Result")!.style.display = "block";
-            if (stage1_rightCount >= 4) {
+            if (stage1_rightCount === 5) {
                 document.getElementById("Stage1_Result")!.classList.add("Stage1_ResultGood");
                 document.getElementById("Stage1_Result_Title")!.innerHTML = "Цудоўна! Хвалю Вас! Пад’ём працягваецца.";
                 // document.getElementById("Stage1_Result_restart")!.style.display = "none";
@@ -116,14 +116,27 @@ for (let i = 0; i < 5; i++) {
                     document.getElementById("Stage2_TitleScreen")!.style.display = "block";
                 }
             }
-            else {
+            else if (stage1_rightCount > 3) {
+                document.getElementById("Stage1_Result")!.classList.add("Stage1_ResultGood");
+                document.getElementById("Stage1_Result_Title")!.innerHTML = "Добра, але паўтарыце біяграфічныя звесткі пісьменнікаў.";
+                // document.getElementById("Stage1_Result_restart")!.style.display = "none";
+                // document.getElementById("Stage1_Result_next")!.style.display = "block";
+
+                document.getElementById("Stage1_Result")!.onclick = () => {
+                    document.getElementById("Stage1_Screen")!.style.display = "none";
+                    document.getElementById("Stage2_Screen")!.style.display = "block";
+                    document.getElementById("Stage2_TitleScreen")!.style.display = "block";
+                }
+            }
+            else if (stage1_rightCount <= 3){
                 document.getElementById("Stage1_Result")!.classList.add("Stage1_ResultBad");
                 document.getElementById("Stage1_Result_Title")!.innerHTML = "Нядрэнна, але паспрабуйце яшчэ раз.";
                 // document.getElementById("Stage1_Result_restart")!.style.display = "block";
                 // document.getElementById("Stage1_Result_next")!.style.display = "none";
                 document.getElementById("Stage1_Result")!.onclick = () => {
                     document.getElementById("Stage1_Result")!.style.display = "none";
-                    document.getElementById("Stage1_TitleScreen")!.style.display = "display";
+                    document.getElementById("Stage1_Screen")!.style.display = "block";
+                    document.getElementById("Stage1_TitleScreen")!.style.display = "block";
                     stage1_StartGame();
                 }
             }
