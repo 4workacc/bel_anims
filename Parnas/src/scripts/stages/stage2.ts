@@ -1,10 +1,9 @@
 import "../../styles/_stage2.scss";
 
-let stage2_score:number = 0;
 
 let stage2_Title_Screen: HTMLElement = document.getElementById("Stage2_TitleScreen")!;
 let stage2_Game_Screen: HTMLElement = document.getElementById("Stage2_Game")!;
-let stage2_Result_screen: HTMLElement = document.getElementById("Stage2_Result")!;
+// let stage2_Result_screen: HTMLElement = document.getElementById("Stage2_Result")!;
 
 const stage2_Start = () => {
     stage2_Title_Screen.style.display = "none";

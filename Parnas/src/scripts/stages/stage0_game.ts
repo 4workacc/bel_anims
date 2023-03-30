@@ -36,7 +36,7 @@ const stage0_generate5RandomBooks = (rightAnswer: string): string[] => {
     return rr;
 }
 // GUI
-let stage0_score: number = 0;
+// let stage0_score: number = 0;
 let stage0_rightAnswers: number;
 let stage0_curQuestionIndex: number;
 
@@ -84,13 +84,13 @@ const stage0_shot = (isRight: boolean) =>{
             document.getElementById("Stage0_Result_restart")!.style.display = "none";
             document.getElementById("Stage0_Result_next")!.style.display = "block";
         } 
-        else if ( stage0_rightAnswers > 0 ) {
+        else if ( stage0_rightAnswers >= 0 ) {
             document.getElementById("Stage0_ResultGod")!.classList.add("Stage0_ResultGod_good")
             document.getElementById("Stage0_ResultTitle")!.innerHTML = "Добра, але трэба перачытаць некаторыя творы.";
             document.getElementById("Stage0_Result_restart")!.style.display = "none";
             document.getElementById("Stage0_Result_next")!.style.display = "block";
         }
-        else if ( stage0_rightAnswers <= 0 ) { 
+        else if ( stage0_rightAnswers < 0 ) { 
             document.getElementById("Stage0_ResultGod")!.classList.add("Stage0_ResultGod_bad")
             document.getElementById("Stage0_ResultTitle")!.innerHTML = "Не атрымалася. Паспрабуйце яшчэ раз.";
             document.getElementById("Stage0_Result_restart")!.style.display = "block";
@@ -105,7 +105,7 @@ const stage0_shot = (isRight: boolean) =>{
 export const stage0_gameStart = () => {
     stage0_rightAnswers = 0;
     stage0_curQuestionIndex = 0;
-    stage0_score = 0;
+    // stage0_score = 0;
     stage0_simptomsArr = [];
     stage0_booksArr = [];
     stage0_ResultScreen.style.display = "none";

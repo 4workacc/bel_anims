@@ -1,8 +1,6 @@
 import "../../styles/_stage1.scss";
 import { stage1_StartGame } from "./stage1_game";
 
-let stage1_score:number = 0;
-
 let stage1_Title_Screen: HTMLElement = document.getElementById("Stage1_TitleScreen")!;
 let stage1_Game_Screen: HTMLElement = document.getElementById("Stage1_Game")!;
 let stage1_Result_screen: HTMLElement = document.getElementById("Stage1_Result")!;
