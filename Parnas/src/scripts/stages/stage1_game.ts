@@ -102,16 +102,30 @@ for (let i = 0; i < 5; i++) {
         stage1_Cards.style.display = "none";
         if (stage1_clickCount >= stage1_countOfAuthors) {
             document.getElementById("Stage1_Game")!.style.display = "none";
+           
             document.getElementById("Stage1_Result")!.style.display = "block";
             if (stage1_rightCount >= 0) {
+                document.getElementById("Stage1_Result")!.classList.add("Stage1_ResultGood");
                 document.getElementById("Stage1_Result_Title")!.innerHTML = "Good";
-                document.getElementById("Stage1_Result_restart")!.style.display = "none";
-                document.getElementById("Stage1_Result_next")!.style.display = "block";
+                // document.getElementById("Stage1_Result_restart")!.style.display = "none";
+                // document.getElementById("Stage1_Result_next")!.style.display = "block";
+
+                document.getElementById("Stage1_Result")!.onclick = () => {
+                    document.getElementById("Stage1_Screen")!.style.display = "none";
+                    document.getElementById("Stage2_Screen")!.style.display = "block";
+                    document.getElementById("Stage2_TitleScreen")!.style.display = "block";
+                }
             }
             else {
+                document.getElementById("Stage1_Result")!.classList.add("Stage1_ResultBad");
                 document.getElementById("Stage1_Result_Title")!.innerHTML = "Bad";
-                document.getElementById("Stage1_Result_restart")!.style.display = "block";
-                document.getElementById("Stage1_Result_next")!.style.display = "none";
+                // document.getElementById("Stage1_Result_restart")!.style.display = "block";
+                // document.getElementById("Stage1_Result_next")!.style.display = "none";
+                document.getElementById("Stage1_Result")!.onclick = () => {
+                    document.getElementById("Stage1_Result")!.style.display = "none";
+                    document.getElementById("Stage1_TitleScreen")!.style.display = "display";
+                    stage1_StartGame();
+                }
             }
         }
 

@@ -31,8 +31,7 @@ const stage0_generate5RandomBooks = (rightAnswer: string): string[] => {
     }
     if (rr.indexOf(rightAnswer) === -1) {
         rr[Math.floor(Math.random() * 5)] = rightAnswer;
-    }
-    console.log(rr)
+    } 
     return rr;
 }
 // GUI
@@ -81,20 +80,32 @@ const stage0_shot = (isRight: boolean) =>{
         if ( stage0_rightAnswers > 9 ) {
             document.getElementById("Stage0_ResultGod")!.classList.add("Stage0_ResultGod_good");
             document.getElementById("Stage0_ResultTitle")!.innerHTML = "Малайчынка! Падымайцеся вышэй.";
-            document.getElementById("Stage0_Result_restart")!.style.display = "none";
-            document.getElementById("Stage0_Result_next")!.style.display = "block";
+            // document.getElementById("Stage0_Result_restart")!.style.display = "none";
+            // document.getElementById("Stage0_Result_next")!.style.display = "block";
+            document.getElementById("Stage0_Result")!.onclick = () => {
+                document.getElementById("Stage0_Screen")!.style.display = "none";
+                document.getElementById("Stage1_Screen")!.style.display = "block";   
+            }
         } 
         else if ( stage0_rightAnswers >= 0 ) {
             document.getElementById("Stage0_ResultGod")!.classList.add("Stage0_ResultGod_good")
             document.getElementById("Stage0_ResultTitle")!.innerHTML = "Добра, але трэба перачытаць некаторыя творы.";
-            document.getElementById("Stage0_Result_restart")!.style.display = "none";
-            document.getElementById("Stage0_Result_next")!.style.display = "block";
+            // document.getElementById("Stage0_Result_restart")!.style.display = "none";
+            // document.getElementById("Stage0_Result_next")!.style.display = "block";
+            document.getElementById("Stage0_Result")!.onclick = () => {
+                document.getElementById("Stage0_Screen")!.style.display = "none";
+                document.getElementById("Stage1_Screen")!.style.display = "block";
+            }
         }
         else if ( stage0_rightAnswers < 0 ) { 
             document.getElementById("Stage0_ResultGod")!.classList.add("Stage0_ResultGod_bad")
             document.getElementById("Stage0_ResultTitle")!.innerHTML = "Не атрымалася. Паспрабуйце яшчэ раз.";
-            document.getElementById("Stage0_Result_restart")!.style.display = "block";
-            document.getElementById("Stage0_Result_next")!.style.display = "none";
+            // document.getElementById("Stage0_Result_restart")!.style.display = "block";
+            // document.getElementById("Stage0_Result_next")!.style.display = "none";
+            document.getElementById("Stage0_Result")!.onclick = () => {
+                document.getElementById("Stage0_Result")!.style.display = "none";
+                document.getElementById("Stage0_TitleScreen")!.style.display = "block";
+            }
         }
         stage0_ResultScreen!.style.display = "block";
         document.getElementById("Stage0_Game")!.style.display = "none";
