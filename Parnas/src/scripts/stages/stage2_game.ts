@@ -71,7 +71,7 @@ const stage2_fioHandler = (clickedFio:string) => {
     }
     else {        
         if (stage2_rightCount >= 7) {          
-            document.getElementById("Stage2_ResultTitle")!.innerHTML =`Good${stage2_rightCount}/${stage2_pseugoCount}`
+            document.getElementById("Stage2_ResultTitle")!.innerHTML =`Неверагодна! Вы трапілі на Парнас!!! Вы геній!!!`
             document.getElementById("Stage2_Game")!.style.display = "none";
             document.getElementById("Stage2_Result")!.style.display = "block";
             document.getElementById("Stage2_Result")!.classList.add("Stage2_ResultGood");
@@ -82,7 +82,7 @@ const stage2_fioHandler = (clickedFio:string) => {
         }
         else {
             document.getElementById("Stage2_Result")!.classList.add("Stage2_ResultBad");
-            document.getElementById("Stage2_ResultTitle")!.innerHTML =`Bad${stage2_rightCount}/${stage2_pseugoCount}`;
+            document.getElementById("Stage2_ResultTitle")!.innerHTML =`Паўтарыце спробу яшчэ раз.`;
             document.getElementById("Stage2_Game")!.style.display = "none";
             document.getElementById("Stage2_Result")!.style.display = "block";
             document.getElementById("Stage2_Result")!.onclick = () => {

@@ -104,9 +104,9 @@ for (let i = 0; i < 5; i++) {
             document.getElementById("Stage1_Game")!.style.display = "none";
            
             document.getElementById("Stage1_Result")!.style.display = "block";
-            if (stage1_rightCount >= 0) {
+            if (stage1_rightCount >= 4) {
                 document.getElementById("Stage1_Result")!.classList.add("Stage1_ResultGood");
-                document.getElementById("Stage1_Result_Title")!.innerHTML = "Good";
+                document.getElementById("Stage1_Result_Title")!.innerHTML = "Цудоўна! Хвалю Вас! Пад’ём працягваецца.";
                 // document.getElementById("Stage1_Result_restart")!.style.display = "none";
                 // document.getElementById("Stage1_Result_next")!.style.display = "block";
 
@@ -118,7 +118,7 @@ for (let i = 0; i < 5; i++) {
             }
             else {
                 document.getElementById("Stage1_Result")!.classList.add("Stage1_ResultBad");
-                document.getElementById("Stage1_Result_Title")!.innerHTML = "Bad";
+                document.getElementById("Stage1_Result_Title")!.innerHTML = "Нядрэнна, але паспрабуйце яшчэ раз.";
                 // document.getElementById("Stage1_Result_restart")!.style.display = "block";
                 // document.getElementById("Stage1_Result_next")!.style.display = "none";
                 document.getElementById("Stage1_Result")!.onclick = () => {

@@ -87,7 +87,7 @@ const stage0_shot = (isRight: boolean) =>{
                 document.getElementById("Stage1_Screen")!.style.display = "block";   
             }
         } 
-        else if ( stage0_rightAnswers >= 0 ) {
+        else if ( stage0_rightAnswers >= 7 ) {
             document.getElementById("Stage0_ResultGod")!.classList.add("Stage0_ResultGod_good")
             document.getElementById("Stage0_ResultTitle")!.innerHTML = "Добра, але трэба перачытаць некаторыя творы.";
             // document.getElementById("Stage0_Result_restart")!.style.display = "none";
