@@ -26,13 +26,13 @@ const stage1_generateArrayOfAuthors = () => {
             newMark.style.left = `${stage1Authors[randInd].coordX}px`;
             newMark.style.top = `${stage1Authors[randInd].coordY}px`;
             newMark.title = `${stage1Authors[randInd].address}`;
-            
+
             newMark.onclick = () => {
                 stage1_curClickedMark = newMark;
                 console.log(stage1_curClickedMark.title);
                 let portArr: IMan[] = stage1_generateAuthorsCards(stage1Authors[randInd]);
 
-                document.getElementById("Stage1_AuthorPlace")!.innerHTML= `${stage1Authors[randInd].address}`;
+                document.getElementById("Stage1_AuthorPlace")!.innerHTML = `${stage1Authors[randInd].address}`;
                 document.getElementById("Stage1_AuthorPort0")!.title = portArr[0].fio;
                 document.getElementById("Stage1_AuthorPort0")!.classList.add(`Stage1_Author${portArr[0].img}`);
                 document.getElementById("Stage1_AuthorPort1")!.title = portArr[1].fio;
@@ -43,7 +43,7 @@ const stage1_generateArrayOfAuthors = () => {
                 document.getElementById("Stage1_AuthorPort3")!.classList.add(`Stage1_Author${portArr[3].img}`);
                 document.getElementById("Stage1_AuthorPort4")!.title = portArr[4].fio;
                 document.getElementById("Stage1_AuthorPort4")!.classList.add(`Stage1_Author${portArr[4].img}`);
-                
+
                 stage1_Cards.style.display = "block";
             };
             document.getElementById("Stage1_Map")?.appendChild(newMark);
@@ -65,44 +65,35 @@ const stage1_generateAuthorsCards = (rightAuthor: IMan): IMan[] => {
     return newSet;
 }
 
-const stage1_clearPortraitCardStyles = () =>{   
-    document.getElementById("Stage1_AuthorPort0")!.classList.remove(document.getElementById("Stage1_AuthorPort0")!.classList[0]);
-    document.getElementById("Stage1_AuthorPort0")!.classList.add("Stage1_Author");
-    document.getElementById("Stage1_AuthorPort0")!.title ="";
-    document.getElementById("Stage1_AuthorPort1")!.classList.remove(document.getElementById("Stage1_AuthorPort1")!.classList[0]);
-    document.getElementById("Stage1_AuthorPort1")!.classList.add("Stage1_Author");
-    document.getElementById("Stage1_AuthorPort1")!.title ="";
-    document.getElementById("Stage1_AuthorPort2")!.classList.remove(document.getElementById("Stage1_AuthorPort2")!.classList[0]);
-    document.getElementById("Stage1_AuthorPort2")!.classList.add("Stage1_Author");
-    document.getElementById("Stage1_AuthorPort2")!.title ="";
-    document.getElementById("Stage1_AuthorPort3")!.classList.remove(document.getElementById("Stage1_AuthorPort3")!.classList[0]);
-    document.getElementById("Stage1_AuthorPort3")!.classList.add("Stage1_Author");
-    document.getElementById("Stage1_AuthorPort3")!.title ="";
-    document.getElementById("Stage1_AuthorPort4")!.classList.remove(document.getElementById("Stage1_AuthorPort4")!.classList[0]);
-    document.getElementById("Stage1_AuthorPort4")!.classList.add("Stage1_Author");
-    document.getElementById("Stage1_AuthorPort4")!.title ="";
+const stage1_clearPortraitCardStyles = () => {
+    for (let i = 0; i < 5; i++) {
+        while (document.getElementById(`Stage1_AuthorPort${i}`)!.classList.length > 0) {
+            document.getElementById(`Stage1_AuthorPort${i}`)!.classList.remove(document.getElementById(`Stage1_AuthorPort${i}`)!.classList[0]);
+        }
+        document.getElementById(`Stage1_AuthorPort${i}`)!.classList.add("Stage1_Author");
+    }
 }
 
 const stage1_checkAnswer = (address: string, author: string): boolean => {
     let result: boolean = false;
-    for ( let i=0; i<stage1Authors.length; i++) {
-        if ( stage1Authors[i].address === address  && stage1Authors[i].fio === author ) {
+    for (let i = 0; i < stage1Authors.length; i++) {
+        if (stage1Authors[i].address === address && stage1Authors[i].fio === author) {
             result = true;
         }
     }
     return result;
 }
 
-for (let i=0;i<5; i++) {
+for (let i = 0; i < 5; i++) {
     let el = document.getElementsByClassName("Stage1_Author");
-    let el1= el[i] as HTMLElement;
-    el1.onclick=()=>{
-        if (stage1_checkAnswer( stage1_curClickedMark.title, el1.title) ){ 
+    let el1 = el[i] as HTMLElement;
+    el1.onclick = () => {
+        if (stage1_checkAnswer(stage1_curClickedMark.title, el1.title)) {
             alert("Right!");
         };
         stage1_clearPortraitCardStyles();
         stage1_Cards.style.display = "none";
-        
+
     }
 }
 
