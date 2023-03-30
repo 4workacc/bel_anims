@@ -35,6 +35,6 @@ let stage1NextButton = document.getElementById("Stage1_Result_next")!;
 stage1NextButton.onclick = () => {
     document.getElementById("Stage1_Screen")!.style.display = "none";
     document.getElementById("Stage2_Screen")!.style.display = "block";
-    
+    document.getElementById("Stage2_TitleScreen")!.style.display = "block";
 }
 export default stage1_Start;

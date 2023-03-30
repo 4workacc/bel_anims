@@ -4,13 +4,15 @@ import { stage1Authors } from "../tasks/task1";
 
 const stage1_countOfAuthors: number = 5;
 let stage1_arrayOfAuthors: IMan[] = [];
-// let stage1_arrayOfMarks: HTMLElement[] = [];
 let stage1_Cards: HTMLElement = document.getElementById("Stage1_Card")!;
+let stage1_rightCount: number = 0;
+let stage1_clickCount: number = 0;
 
 export const stage1_StartGame = () => {
     stage1_Cards.style.display = "none";
-    stage1_generateArrayOfAuthors();
-    console.log(1, stage1_arrayOfAuthors);
+    stage1_rightCount =0;
+    stage1_clickCount= 0;
+    stage1_generateArrayOfAuthors();    
 }
 
 let stage1_curClickedMark: any = null;
@@ -28,8 +30,8 @@ const stage1_generateArrayOfAuthors = () => {
             newMark.title = `${stage1Authors[randInd].address}`;
 
             newMark.onclick = () => {
-                stage1_curClickedMark = newMark;
-                console.log(stage1_curClickedMark.title);
+                stage1_clickCount += 1;
+                stage1_curClickedMark = newMark;               
                 let portArr: IMan[] = stage1_generateAuthorsCards(stage1Authors[randInd]);
 
                 document.getElementById("Stage1_AuthorPlace")!.innerHTML = `${stage1Authors[randInd].address}`;
@@ -45,6 +47,7 @@ const stage1_generateArrayOfAuthors = () => {
                 document.getElementById("Stage1_AuthorPort4")!.classList.add(`Stage1_Author${portArr[4].img}`);
 
                 stage1_Cards.style.display = "block";
+
             };
             document.getElementById("Stage1_Map")?.appendChild(newMark);
         }
@@ -89,10 +92,28 @@ for (let i = 0; i < 5; i++) {
     let el1 = el[i] as HTMLElement;
     el1.onclick = () => {
         if (stage1_checkAnswer(stage1_curClickedMark.title, el1.title)) {
-            alert("Right!");
+            stage1_curClickedMark.classList.add("Stage1_goodMark");
+            stage1_rightCount += 1;            
+        } else {
+            stage1_curClickedMark.classList.add("Stage1_badMark");
         };
+        stage1_curClickedMark.onclick = "";
         stage1_clearPortraitCardStyles();
         stage1_Cards.style.display = "none";
+        if (stage1_clickCount >= stage1_countOfAuthors) {
+            document.getElementById("Stage1_Game")!.style.display = "none";
+            document.getElementById("Stage1_Result")!.style.display = "block";
+            if (stage1_rightCount >= 0) {
+                document.getElementById("Stage1_Result_Title")!.innerHTML = "Good";
+                document.getElementById("Stage1_Result_restart")!.style.display = "none";
+                document.getElementById("Stage1_Result_next")!.style.display = "block";
+            }
+            else {
+                document.getElementById("Stage1_Result_Title")!.innerHTML = "Bad";
+                document.getElementById("Stage1_Result_restart")!.style.display = "block";
+                document.getElementById("Stage1_Result_next")!.style.display = "none";
+            }
+        }
 
     }
 }
