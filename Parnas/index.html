@@ -11,7 +11,7 @@
 <body>
   <div id="app">
     <div id="TitleScreen">
-      <img src="./src/imgs/global/titleImg_2023.png" />
+      <img src="./src/imgs/global/titleImg_2023_2.png" />
       <!-- <button id="GameStartButton">Пачаць</button> -->
     </div>
     <div id="Stage0_Screen">
@@ -84,8 +84,31 @@
       </div>
     </div>
     <div id = "Final_Screen">
-      <h1>Final screen</h1>
-    </dic>
+      <canvas width="1000" height="730" id="fireworks-canvas"></canvas>
+      <script src="./src/pluggins/firework.js"></script>
+      <script>
+      window.onload = function () {
+          var firework = JS_FIREWORKS.Fireworks({
+              id : 'fireworks-canvas',
+              hue : 120,
+              particleCount : 50,
+              delay : 0,
+              minDelay : 20,
+              maxDelay : 40,
+              boundaries : { // of respawn and target
+                  top: 50,
+                  bottom: 240,
+                  left: 50,
+                  right: 590
+              },
+              fireworkSpeed : 2,
+              fireworkAcceleration : 1.05,
+              particleFriction : .95,
+              particleGravity : 1.5
+          });
+          firework.start();
+      };
+      </script>    
   </div>
   <script type="module" src="./src/main.ts"></script>
 </body>

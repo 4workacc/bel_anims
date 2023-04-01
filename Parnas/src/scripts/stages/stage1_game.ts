@@ -12,12 +12,17 @@ export const stage1_StartGame = () => {
     stage1_Cards.style.display = "none";
     stage1_rightCount =0;
     stage1_clickCount= 0;
+    stage1_arrayOfAuthors = [];
     stage1_generateArrayOfAuthors();    
 }
 
 let stage1_curClickedMark: any = null;
 
 const stage1_generateArrayOfAuthors = () => {
+    while ( document.getElementById("Stage1_Map")!.firstChild ) {
+        document.getElementById("Stage1_Map")?.removeChild(document.getElementById("Stage1_Map")!.lastChild!)
+    }    
+    
     while (stage1_arrayOfAuthors.length < stage1_countOfAuthors) {
         let randInd: number = Math.floor(Math.random() * stage1Authors.length);
         if (stage1_arrayOfAuthors.indexOf(stage1Authors[randInd]) === -1) {
@@ -107,9 +112,6 @@ for (let i = 0; i < 5; i++) {
             if (stage1_rightCount === 5) {
                 document.getElementById("Stage1_Result")!.classList.add("Stage1_ResultGood");
                 document.getElementById("Stage1_Result_Title")!.innerHTML = "Цудоўна! Хвалю Вас! Пад’ём працягваецца.";
-                // document.getElementById("Stage1_Result_restart")!.style.display = "none";
-                // document.getElementById("Stage1_Result_next")!.style.display = "block";
-
                 document.getElementById("Stage1_Result")!.onclick = () => {
                     document.getElementById("Stage1_Screen")!.style.display = "none";
                     document.getElementById("Stage2_Screen")!.style.display = "block";
@@ -119,20 +121,15 @@ for (let i = 0; i < 5; i++) {
             else if (stage1_rightCount > 3) {
                 document.getElementById("Stage1_Result")!.classList.add("Stage1_ResultGood");
                 document.getElementById("Stage1_Result_Title")!.innerHTML = "Добра, але паўтарыце біяграфічныя звесткі пісьменнікаў.";
-                // document.getElementById("Stage1_Result_restart")!.style.display = "none";
-                // document.getElementById("Stage1_Result_next")!.style.display = "block";
-
                 document.getElementById("Stage1_Result")!.onclick = () => {
                     document.getElementById("Stage1_Screen")!.style.display = "none";
                     document.getElementById("Stage2_Screen")!.style.display = "block";
                     document.getElementById("Stage2_TitleScreen")!.style.display = "block";
                 }
             }
-            else if (stage1_rightCount <= 3){
+            else if (stage1_rightCount <= 3 ){
                 document.getElementById("Stage1_Result")!.classList.add("Stage1_ResultBad");
                 document.getElementById("Stage1_Result_Title")!.innerHTML = "Нядрэнна, але паспрабуйце яшчэ раз.";
-                // document.getElementById("Stage1_Result_restart")!.style.display = "block";
-                // document.getElementById("Stage1_Result_next")!.style.display = "none";
                 document.getElementById("Stage1_Result")!.onclick = () => {
                     document.getElementById("Stage1_Result")!.style.display = "none";
                     document.getElementById("Stage1_Screen")!.style.display = "block";

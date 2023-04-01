@@ -34,8 +34,7 @@ const stage0_generate5RandomBooks = (rightAnswer: string): string[] => {
     } 
     return rr;
 }
-// GUI
-// let stage0_score: number = 0;
+
 let stage0_rightAnswers: number;
 let stage0_curQuestionIndex: number;
 
@@ -79,29 +78,24 @@ const stage0_shot = (isRight: boolean) =>{
     } else {        
         if ( stage0_rightAnswers === 10 ) {
             document.getElementById("Stage0_ResultGod")!.classList.add("Stage0_ResultGod_good");
-            document.getElementById("Stage0_ResultTitle")!.innerHTML = "Малайчынка! Падымайцеся вышэй.";
-            // document.getElementById("Stage0_Result_restart")!.style.display = "none";
-            // document.getElementById("Stage0_Result_next")!.style.display = "block";
+            document.getElementById("Stage0_ResultTitle")!.innerHTML = "Малайчынка! Падымайцеся вышэй.";      
             document.getElementById("Stage0_Result")!.onclick = () => {
                 document.getElementById("Stage0_Screen")!.style.display = "none";
                 document.getElementById("Stage1_Screen")!.style.display = "block";   
             }
         } 
-        else if ( stage0_rightAnswers >= 7 ) {
+        // 8
+        else if ( stage0_rightAnswers >=8) {
             document.getElementById("Stage0_ResultGod")!.classList.add("Stage0_ResultGod_good")
             document.getElementById("Stage0_ResultTitle")!.innerHTML = "Добра, але трэба перачытаць некаторыя творы.";
-            // document.getElementById("Stage0_Result_restart")!.style.display = "none";
-            // document.getElementById("Stage0_Result_next")!.style.display = "block";
             document.getElementById("Stage0_Result")!.onclick = () => {
                 document.getElementById("Stage0_Screen")!.style.display = "none";
                 document.getElementById("Stage1_Screen")!.style.display = "block";
             }
         }
-        else if ( stage0_rightAnswers < 7 ) { 
+        else if ( stage0_rightAnswers < 8 ) { 
             document.getElementById("Stage0_ResultGod")!.classList.add("Stage0_ResultGod_bad")
             document.getElementById("Stage0_ResultTitle")!.innerHTML = "Не атрымалася. Паспрабуйце яшчэ раз.";
-            // document.getElementById("Stage0_Result_restart")!.style.display = "block";
-            // document.getElementById("Stage0_Result_next")!.style.display = "none";
             document.getElementById("Stage0_Result")!.onclick = () => {
                 document.getElementById("Stage0_Result")!.style.display = "none";
                 document.getElementById("Stage0_TitleScreen")!.style.display = "block";

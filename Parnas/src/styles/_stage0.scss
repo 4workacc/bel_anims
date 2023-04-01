@@ -25,6 +25,9 @@
 #Stage0_Game, #Stage0_Result {
     display: none;
 }
+#Stage0_Game {
+    background-color: #d9df8a;
+}
 #Stage0_Game_ShotBar {
     width: 100%;
     height: 100px;
@@ -39,6 +42,8 @@
     height: 50px;
     border-radius: 50%;
     box-shadow: 0 0 1px 1px gray;
+    opacity: 0.1;
+    transition: 0.5s;
 }
 #Stage0_Simptoms {
     width: 100%;
@@ -64,8 +69,16 @@
     }
 }
 
-.Stage_ShotGood { background-color: #00FF00;}
-.Stage_ShotBad { background-color: #FF0000;}
+.Stage_ShotGood { 
+    background-color: #00FF00;
+    box-shadow: 0 0 1px 1px #00FF00;
+    opacity: 1;
+}
+.Stage_ShotBad { 
+    background-color: #FF0000;
+    box-shadow: 0 0 1px 1px #FF0000;
+    opacity: 1;
+}
 
 #Stage0_Result {
     background-image: url(../imgs/stage0/back.png);

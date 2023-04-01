@@ -32,6 +32,8 @@
     height: 50px;
     border-radius: 50%;
     box-shadow: 0 0 1px 1px gray;
+    opacity: 0.1;
+    transition: 0.5s;
 }
 
 #Stage2_PseudoTitle {
@@ -61,11 +63,15 @@
 }
 
 .Stage2_right {
-    background-color: green;
+    background-color: #00FF00;
+    box-shadow: 0 0 1px 1px #00FF00;
+    opacity: 1;
 }
 
 .Stage2_err {
-    background-color: red;
+    background-color: #FF0000;
+    box-shadow: 0 0 1px 1px #FF0000;
+    opacity: 1;
 }
 
 .Stage2_ResultGood {
@@ -83,4 +89,7 @@
     text-align: center;
     padding: 0;
     width: 100%;
+}
+#Stage2_Game {
+    background-color: #d9df8a;
 }

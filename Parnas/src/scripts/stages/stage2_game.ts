@@ -55,8 +55,7 @@ const stage2_displayQuest = () => {
     document.getElementById("Stage2_PseudoTitle")!.innerHTML = stage2_PseudoArr[stage2_curIndex];
 }
 
-const stage2_fioHandler = (clickedFio:string) => {   
-    stage2_curIndex +=1;
+const stage2_fioHandler = (clickedFio:string) => {      
     if (stage2_curIndex < 9) {
         let curPseudoInde:number = stage2Pseudo.indexOf(stage2_PseudoArr[stage2_curIndex]);
         if (stage2Main[curPseudoInde] === clickedFio) {
@@ -65,12 +64,13 @@ const stage2_fioHandler = (clickedFio:string) => {
         }
         else {
             document.getElementById(`stage2_shot${stage2_curIndex}`)?.classList.add('Stage2_err');
-        }        
+        }     
+        stage2_curIndex += 1;   
         stage2_displayQuest()
         stage2_generateDisplayFIOS();
     }
     else {        
-        if (stage2_rightCount >= 7) {          
+        if (stage2_rightCount >= 8) {          
             document.getElementById("Stage2_ResultTitle")!.innerHTML =`Неверагодна! Вы трапілі на Парнас!!! Вы геній!!!`
             document.getElementById("Stage2_Game")!.style.display = "none";
             document.getElementById("Stage2_Result")!.style.display = "block";
