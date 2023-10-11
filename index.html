@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #mainScreen{
+            position: absolute;
+            width: 1024px;
+            height: 550px;
+            left: 50%;
+            top: 5%;
+            margin-left: -550px;              
+            
+            display: flex;
+            flex-direction: row;
+            justify-content: center;    
+            flex-flow:row wrap;     
+
+            margin-bottom: -10px;
+            align-items: center;  
+            align-content: center; 
+            overflow: hidden;
+             
+        }
+        .sentWord{    
+            text-align: center;
+            padding-left: 2px;
+            padding-right: 2px;
+            font: 2.5em sans-serif;             
+            
+        }
+        .dragOver{
+            position: absolute;
+            border: 1px solid red;
+        }
+        .space {
+            /* position: absolute; */
+            width: 50px;
+            height: 50px;
+            border: 1px solid black;
+            font-size: 50px;
+            padding-top: -10px;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+            align-items: center;
+        }
+        .simb {
+            position: absolute;
+            width: 40px;
+            height: 20px;
+            box-shadow: 0 1px 0 1px solid black;
+            text-align: center;
+            font: 40px "Times New Roman";
+            padding-top: -10px;
+            padding-bottom: 20px;    
+            margin-top: -10px;
+            margin-bottom: 10px;
+            top: 0px;
+            margin-left: 10px;
+            margin-right: 10px;
+            border: 1px solid blue;
+            background-color: lightgray;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #simbDiv {
+            position: absolute;
+            width: 900px;
+            height: 50px;
+            left: 50%;    
+            top: 600px;
+            margin-left: -450px;   
+            
+        }
+        .spanOverRight{
+            border: 4px solid green;
+            font-size: 50px;
+        }
+        .spanOverBad {
+            border: 4px solid red;
+            font-size: 50px;
+        }
+        .spanOver{
+            border: 4px solid lightblue;
+            font-size: 50px;
+        }
+        #but{
+            position: absolute;
+            width: 70px;
+            height: 45px;
+            left: 50%;
+            top: 650px;
+            margin-left: -35px;
+        }
+        .rez{
+            font-size: 3em;
+        }
+        #rezBar{
+            position: absolute;
+            width: 900px;
+            height: 50px;
+            top: 0px;
+            left: 50%;
+            margin-left: -450px;
+
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+        }
+        .bar{
+            width: 45px;
+            height: 45px;
+            border-radius: 22px;
+            background-color: lightblue;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div id = "rezBar">
+
+        </div>
+        <div id="mainScreen">
+            
+        </div>
+        <div id = "simbDiv">            
+        </div>
+        <button id = "but">Next</button>
+    </div>
+</body>
+<script>
+    //генерация массива предложений для анимации
+const arr = [
+    "А хвоя шуміць і шуміць, ды павявае вецер над галавой.",
+    "Ужо ўзышло сонца, і мне ўсё відаць было вельмі добра.",
+    "На поўнач ішлі лясы, а на поўдзень мясцовасць была чыстая.",
+    "Не рэкі гамоняць, а зброя звініць.",
+    "Ці адзавуцца ў небе гусі, ці дзяцел грукне на сасне.",
+    "Або птушак там не было, або яны проста не адважваліся падаваць голасу.",
+    "Салдаты прайшлі, і песня раптам абарвалася дзесь на павароце.",
+    "Ужо даўно сцямнела, і праз шыбы акон глядзеў зімовы месяц.",
+    "Па шашы ўвесь дзень ішлі людзі або ехалі падводы.",
+    "Хай свеціць сонца і радуюцца дзеці.",
+    "Яна паспешліва паставіла на стол вячэру і сама села побач.",
+    "Бяскрайні стэп і мора травы.",
+    "Ноч і цішыня.",
+    "Вечарэе і пахне кветкамі.",
+    "Куды ж ісці і што рабіць?",
+    "Колькі працы і колькі сумлення!",
+    "Хто б гэта мог быць і што ён сячэ?",
+    "Вее вецер, свішча ў коміне, горка плача, надрываецца; і цяпер мне тая музыка, як жывая, успамінаецца.",
+    "Сярэдзіна кастрычніка@ і такі мароз.",
+    "Зачэпіш галіну@ і на галаву снег, як са страхі.",
+    "На мой Дзень нараджэння былі запрошаны розныя госці, але самым дарагім і ганаровым госцем была мая дарагая маці.",
+    "Маці хоча смяяцца ад душы, але ў яе чамусьці не выходзіць нават лёгкая ўсмешка.",
+    "Новы касцюм ідэальна сядзеў на маёй маці, ды і ўся яна была зграбная, лёгкая, ладная і, канешне, вельмі прыгожая.",
+    "Прыпякае сонца, ды вее лагодны ветрык.",
+    "Было хмарна, але дажджу не было.",
+    "То нямеюць нівы ў полі, то дрыжыць пяшчотна гай.",
+    "Гара невысокая, ды і то з яе цяжка з’ехаць.",
+    "Раздаўся зычны гук@ і сухая галінка разляцелася на кавалкі.",
+    "Гукну ў прастор@ і грозна адзавецца шалёны гром праз хіжыя вякі.",
+    "Відаць, маўчала возера ў тумане ды вербы плакалі ў цішы.",
+    "Пры пыльнай дарозе шумяць палыны, і вясёлыя плачуць наводдаль каліны.",
+    "Рыбак быў дзядзька, наш Антоні, як і работнік, адмысловы; а Уладзік пасвіў дзесь каровы, травіў чужыя сенажаці; а дома з дзецьмі была маці.",
+    "У кастрычніку прыроду агортвае своеасаблівы сум і туга.",
+    "З дрэў асыпаецца апошняя лістота, і яе суцэльны рознакаляровы дыван густа ўкрывае адсырэлую зямлю.",
+    "Неба зацягваецца хмарамі, і цярушыць дробны дождж.",
+    "Але надвор’е ў кастрычніку пераменлівае і неаднастайнае.",
+    "То ідуць працяглыя дажджы, то ўсталююцца амаль летнія дзянькі.", 
+    "Сонца засвеціць шчыра і ласкава, і неба ачысціцца ад хмар, здзівіўшы празрыстым паветрам.",
+    "Настрой выдатны сёння, і хочацца спяваць!",
+    "То прасвятлее неба трошкі, то хмара зноў заслоніць свет.",
+    "Лісты ападаюць, а верас цвіце і цвіце.",
+    "К ночы вецер сціхаў, затое пачаў накрапваць дождж.",
+    "Неба нізка вісела над мокрай зямлёй, але дождж перастаў і вецер улёгся.",
+    "На шафе ляжалі ручкі і стаялі кветкі.",
+    "То дзеці бегалі, то дарослыя праходзілі.",
+    "На двары марозна і ў кватэры зімна.",
+    "Туман рассцілаецца ўранку, і росы ярчэй серабра, раняючы лісце, ля ганку сумуе з вятрамі вярба.",
+    "Пагаварылі яшчэ пра сёе-тое, але сапраўды шчырай размовы не атрымалася.",
+    "Ён спрабаваў гукаць, ды ніхто не адказвае.",
+    "Уранку добра спіцца і лёгка дыхаецца."
+]
+shuffle(arr);
+shuffle(arr);
+const curArr =[];
+for ( var i=0; i<10; i++) { curArr[i] = arr[i] };
+//////////////////////////////////////////////////////////
+// разбивка на отдельные слова 
+// и создание массива мест для знаков
+//////////////////////////////////////////////////////////
+let mainScreen = document.getElementById("mainScreen");
+let simbDiv = document.getElementById("simbDiv");
+let but = document.getElementById("but");
+let curIndex = 0; //индекс текущего предложения
+
+let curBlocks = []; //тут все слова и спаны для знаков
+let curRightArr = []; //массив правильной последовательности ответов _ _ _ , _
+let curAnsValues = []; //текущий массив ответов _ _ _ _ _
+let rightAnswersCount = 0;
+
+let rezBar = document.getElementById("rezBar");
+
+let curSpans = [];
+let spansX = [];
+let spansY = [];
+
+let curSimbol = "";
+var draggableObject = null;
+
+let sent = curArr[curIndex];
+
+for ( var i =0; i<10; i++) {
+    let bar = document.createElement("div");
+    bar.classList.add("bar");
+    rezBar.appendChild(bar);
+}
+/////////////////////////////////////////////////////////////////
+function startLevel () {    
+    getRightAnsersArr();
+    
+    getCurBlockArr();
+    getSimbArr();
+    for ( var i = 0; i<curRightArr.length; i++) {
+        curAnsValues.push(" ");
+    };
+};
+startLevel();
+let barArr = document.getElementsByClassName("bar");
+but.onclick = function(){         
+    let isArraysEqual = true;
+    for ( var i=0; i<curRightArr.length; i++) {      
+        if (curRightArr[i] != curAnsValues[i]) {
+            isArraysEqual = false;
+        }
+    };    
+    if(isArraysEqual){ rightAnswersCount += 1;}
+    while (mainScreen.firstChild) {
+        mainScreen.removeChild(mainScreen.lastChild);
+    }    
+    while (simbDiv.firstChild) {
+        simbDiv.removeChild(simbDiv.lastChild);
+    }
+    if ( isArraysEqual ) { barArr[curIndex].style.backgroundColor = "green"} 
+    else { barArr[curIndex].style.backgroundColor = "red"}
+    curIndex += 1;
+    if ( curIndex < 10 ) {        
+        sent = curArr[curIndex];
+        curBlocks = [];
+        curRightArr = [];
+        curAnsValues = [];
+        startLevel();
+    }
+    else {
+        let pp = document.createElement("p");
+        pp.innerHTML = "Вынік: правільна "+rightAnswersCount+" з 10 сказаў";
+        pp.classList.add("rez");
+        mainScreen.appendChild(pp);
+        but.style.display = "none";
+    }
+    
+}
+/////////////////////////////////////////////////////////////////
+//             набивка массива правильных ответов
+//             удаление из предложение всех знаков препинания
+///////////////////////////////////////////////////////////////// 
+function getRightAnsersArr (){
+    for ( var i=0; i<sent.length; i++) {
+        let q = sent;
+        if ( sent[i] === " ") { curRightArr.push(" ");};
+        if ( sent[i] === ",") { curRightArr.push(","); };
+        if ( sent[i] === "@") { 
+            curRightArr.push("-");  
+        };
+        if ( sent[i] === ";") { curRightArr.push(";"); };
+    }    
+    sent = sent.replace(/,/g , "");
+    sent = sent.replace(/:/g , "");
+    sent = sent.replace(/;/g , "");
+    sent = sent.replace(/@/g , "");
+    console.log(curRightArr);
+}
+/////////////////////////////////////////////////////////////////
+function getCurBlockArr () {
+    sent = sent.split(" ");   
+    for ( var i=0; i<sent.length; i++) {
+        let pp = document.createElement("p");
+        pp.classList.add("sentWord");
+        pp.draggable = true;
+        pp.innerHTML = sent[i];       
+        curBlocks.push(pp);        
+
+        let ss = document.createElement("p");
+        ss.classList.add("space");                 
+        ss.onmouseleave = function() {             
+            ss.classList.remove("spanOver"); 
+        };   
+                  
+        curBlocks.push(ss);      
+    }       
+    curBlocks.pop();
+    for ( var i =0; i<curBlocks.length; i++) {
+        mainScreen.appendChild(curBlocks[i]);        
+    }   
+    let spans = document.getElementsByClassName("space");
+    for ( let i=0; i<spans.length; i++ ) {
+        spans[i].onmouseover = function(){                    
+            try{   
+                if ( draggableObject.innerHTML === curRightArr[i] ) {
+                    spans[i].classList.add("spanOver");
+                }             
+                else {
+                    spans[i].classList.add("spanOver");
+                }
+                
+                spans[i].innerHTML = draggableObject.innerHTML;
+                curAnsValues[i] = draggableObject.innerHTML;                
+                draggableObject = null;
+            }
+            catch( er ){}                                         
+        }   
+        spans[i].onclick = function(){
+            spans[i].classList.remove("spanOver");
+            spans[i].classList.remove("spanOverBad");
+            spans[i].classList.remove("spanOverRight");
+            spans[i].innerHTML = "";
+            curAnsValues[i] = " ";
+        }          
+    }
+    console.log(curAnsValues);
+}
+
+//////////////////////////////////////////////////////////////////
+//  создание массива знаков препинания
+//////////////////////////////////////////////////////////////////
+function getSimbArr(){
+    let simbArr = [",",",",",",",",",", "-","-",";",";", ":",":"];
+    for ( var i=0; i<simbArr.length; i++ ) {
+        let pp = document.createElement("p");
+        pp.innerHTML = simbArr[i];
+        pp.draggable = true;
+        pp.style.left = 130 + i*60 + "px";       
+        pp.onmousedown = function( ) { startMove( pp ) };
+        pp.classList.add("simb");
+        simbDiv.appendChild(pp);
+    }
+
+};
+///////////////////////////////////////////////////////////////
+function startMove (qq) {    
+        draggableObject = qq;
+    };
+var tempArr = [];
+document.onmouseup = function() { endMove () };
+function endMove (){
+    if ( draggableObject != null ) {            
+        draggableObject = null;            
+    }
+}
+//
+function shuffle(array) {
+    array.sort(() => Math.random() - 0.5);
+}
+
+
+// Закрепление символа за спаном
+// проверка правильности
+// переключение на след предложение
+// окно подведения итогов
+</script>
+</html>
